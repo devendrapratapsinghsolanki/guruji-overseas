@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  /* Deep Navy Foundation */
+  --color-navy-950: #071120;
+  --color-navy-900: #0b1b3d;
+  --color-navy-850: #0f244e;
+  --color-navy-800: #162f61;
+  --color-navy-700: #1d3d7c;
+  --color-navy-100: #e8eef8;
+  --color-navy-50: #f4f7fc;
+
+  /* Royal Blue Accent */
+  --color-royal-700: #1d4ed8;
+  --color-royal-600: #2563eb;
+  --color-royal-500: #3b82f6;
+  --color-royal-50: #eff6ff;
+
+  /* Charcoal & Neutrals */
+  --color-charcoal-900: #111827;
+  --color-charcoal-800: #1f2937;
+  --color-charcoal-700: #374151;
+  --color-charcoal-600: #4b5563;
+  --color-charcoal-500: #6b7280;
+
+  /* Restrained Warm Gold/Amber (Used sparingly for focal accents) */
+  --color-amber-700: #b45309;
+  --color-amber-600: #d97706;
+  --color-amber-500: #f59e0b;
+  --color-amber-100: #fef3c7;
+  --color-amber-50: #fffbeb;
+
+  /* Surface Tokens */
+  --color-surface-white: #ffffff;
+  --color-surface-warm: #fafafa;
+  --color-surface-gray: #f3f4f6;
+  --color-border-subtle: #e5e7eb;
+  --color-border-medium: #d1d5db;
+
+  /* Single Unified Font System */
+  --font-sans: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Restrained, Realistic Shadows - No glowing blobs or neon shadows */
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 8px -1px rgba(11, 27, 61, 0.06), 0 1px 3px -1px rgba(11, 27, 61, 0.04);
+  --shadow-card-hover: 0 8px 16px -2px rgba(11, 27, 61, 0.08), 0 3px 6px -1px rgba(11, 27, 61, 0.04);
+  --shadow-dropdown: 0 10px 25px -3px rgba(11, 27, 61, 0.1), 0 4px 6px -2px rgba(11, 27, 61, 0.05);
+
+  /* Clean Architectural Radii */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background-color: #e8eef8;
+  color: #0b1b3d;
+}
+
+/* Subtle, authentic institutional background for headers/footers */
+.bg-navy-solid {
+  background-color: #0b1b3d;
+}
+
+.bg-navy-deep {
+  background-color: #071120;
+}
+
+/* Clean, restrained card transition without excessive translation */
+.card-hover-clean {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover-clean:hover {
+  border-color: #d1d5db;
+  box-shadow: var(--shadow-card-hover);
+}
