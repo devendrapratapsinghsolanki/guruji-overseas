@@ -78,7 +78,7 @@ export function Hero() {
               Expert guidance for IELTS &amp; PTE preparation, overseas education,
               university admissions and visa assistance. Based in Rohtak, we guide
               students and professionals toward accredited programs across Canada,
-              the UK, Australia, New Zealand, USA, Germany, and Ireland.
+              UK, Australia, New Zealand, USA, Germany, and Europe.
             </p>
 
             {/* Primary & Secondary CTAs */}

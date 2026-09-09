@@ -359,13 +359,14 @@ export function Navbar() {
           </div>
 
           {/* Right Action Button & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <div className="hidden sm:flex items-center">
               <Button
                 variant="royal"
-                size="md"
+                size="sm"
                 href="#inquiry"
-                rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
+                rightIcon={<ArrowRight className="w-3 h-3" />}
+                className="text-xs px-3.5 py-1.5 font-semibold rounded-md shadow-subtle"
               >
                 Book Free Counselling
               </Button>
