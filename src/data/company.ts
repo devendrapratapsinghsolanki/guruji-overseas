@@ -1,9 +1,9 @@
-export const COMPANY_INFO = {
+wexport const COMPANY_INFO = {
   brandName: "GURUJI OVERSEAS",
   legalName: "GURUJI OVERSEAS IMMIGRATION PRIVATE LIMITED",
   tagline: "Overseas Education & Visa Assistance Consultancy",
   establishedYear: 2022,
-  
+
   contact: {
     primaryPhone: "+91 7056 544 009",
     displayPhone: "+91 7056 544 009",
