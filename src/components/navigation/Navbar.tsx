@@ -154,15 +154,15 @@ export function Navbar() {
   return (
     <>
       {/* Top Utility / Contact Bar */}
-      <div className="bg-navy-950 text-slate-300 text-xs py-2 border-b border-navy-900 select-none">
-        <Container className="flex items-center justify-between gap-4 whitespace-nowrap overflow-x-auto no-scrollbar">
+      <div className="bg-navy-950 text-slate-300 text-xs py-2 border-b border-navy-900 select-none overflow-hidden">
+        <Container className="flex items-center justify-between gap-4 whitespace-nowrap">
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-amber-400 font-semibold flex items-center gap-1">
               Established {COMPANY_INFO.establishedYear}
             </span>
             <span className="text-slate-600 hidden sm:inline">|</span>
             <span className="hidden sm:inline text-slate-300">
-              {COMPANY_INFO.legalName}
+              Rohtak, Haryana
             </span>
             <span className="text-slate-600 hidden md:inline">|</span>
             <span className="hidden md:flex items-center gap-1 text-slate-300">
@@ -171,10 +171,10 @@ export function Navbar() {
             </span>
           </div>
 
-          <div className="flex items-center gap-5 shrink-0">
-            <div className="hidden lg:flex items-center gap-1.5 text-slate-300">
+          <div className="flex items-center gap-4 shrink-0">
+            <div className="hidden sm:flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              <span>{COMPANY_INFO.location.landmark}, {COMPANY_INFO.location.city}</span>
+              <span>Opp. D-Park</span>
             </div>
             <a
               href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
@@ -193,15 +193,15 @@ export function Navbar() {
           "sticky top-0 z-50 w-full transition-all duration-200 bg-white",
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-card border-b border-slate-200/90 py-2.5"
-            : "bg-white border-b border-slate-200 py-4"
+            : "bg-white border-b border-slate-200 py-3.5"
         )}
       >
-        <Container className="flex items-center justify-between gap-4 whitespace-nowrap">
+        <Container className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Logo />
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center gap-1 text-sm font-medium text-charcoal-700 whitespace-nowrap">
+          {/* Clean Streamlined Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-1 text-sm font-medium text-charcoal-700 whitespace-nowrap">
             {/* 1. Study Abroad Dropdown */}
             <div
               className="relative"
@@ -341,15 +341,7 @@ export function Navbar() {
               )}
             </div>
 
-            {/* 4. Universities */}
-            <Link
-              href="#destinations"
-              className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors"
-            >
-              Universities
-            </Link>
-
-            {/* 5. About Us */}
+            {/* 4. About Us */}
             <Link
               href="#about"
               className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors"
@@ -357,20 +349,12 @@ export function Navbar() {
               About Us
             </Link>
 
-            {/* 6. Success Stories */}
+            {/* 5. Contact */}
             <Link
-              href="#success-stories"
+              href="#contact"
               className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors"
             >
-              Success Stories
-            </Link>
-
-            {/* 7. Blog */}
-            <Link
-              href="#blog"
-              className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors"
-            >
-              Blog
+              Contact
             </Link>
           </div>
 
