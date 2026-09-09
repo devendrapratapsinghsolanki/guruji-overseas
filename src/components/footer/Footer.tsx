@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           {/* Column 1: Brand & Office Information */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo theme="dark" />
+            <Logo variant="footer" theme="dark" />
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm mt-3">
               {COMPANY_INFO.legalName} is an overseas education and immigration
               consultancy established in {COMPANY_INFO.establishedYear} in Rohtak,

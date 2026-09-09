@@ -154,7 +154,7 @@ export function Navbar() {
   return (
     <>
       {/* Top Utility / Contact Bar */}
-      <div className="bg-navy-950 text-slate-300 text-xs py-2 border-b border-navy-900 select-none overflow-hidden">
+      <div className="bg-navy-950 text-slate-300 text-xs py-1 sm:py-1.5 border-b border-navy-900 select-none overflow-hidden">
         <Container className="flex items-center justify-between gap-4 whitespace-nowrap">
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-amber-400 font-semibold flex items-center gap-1">
@@ -187,13 +187,13 @@ export function Navbar() {
         </Container>
       </div>
 
-      {/* Main Sticky Navbar */}
+      {/* Main Sticky Navbar - Compact, sleek height */}
       <nav
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-200 bg-white",
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-card border-b border-slate-200/90 py-2.5"
-            : "bg-white border-b border-slate-200 py-3.5"
+            ? "bg-white/95 backdrop-blur-md shadow-card border-b border-slate-200/90 py-1.5"
+            : "bg-white border-b border-slate-200 py-2 sm:py-2.5"
         )}
       >
         <Container className="flex items-center justify-between gap-4">
