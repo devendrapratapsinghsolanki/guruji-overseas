@@ -91,21 +91,40 @@ export function AboutSection() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-lg overflow-hidden border border-border-subtle p-2 bg-surface-gray">
-                <PhotoPlaceholder
-                  alt="Guruji Overseas Classroom Sessions"
-                  category="classroom"
-                  label="Classroom Training Environment"
-                  aspectRatio="4/3"
-                />
+              <div className="group rounded-xl overflow-hidden border border-slate-200 p-2 bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-navy-950">
+                  <Image
+                    src="/images/ielts-pte-lab.jpg"
+                    alt="Guruji Overseas Classroom & Computer Testing Lab"
+                    fill
+                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent flex items-end p-2">
+                    <span className="text-[10px] font-bold text-amber-300">Classroom &amp; Lab</span>
+                  </div>
+                </div>
+                <div className="pt-2 text-[11px] font-semibold text-charcoal-700 text-center">
+                  IELTS &amp; PTE Daily Batches
+                </div>
               </div>
-              <div className="rounded-lg overflow-hidden border border-border-subtle p-2 bg-surface-gray">
-                <PhotoPlaceholder
-                  alt="Guruji Overseas Office Signage at Sheetal Mall"
-                  category="signage"
-                  label="Mall Entrance & Signage"
-                  aspectRatio="4/3"
-                />
+
+              <div className="group rounded-xl overflow-hidden border border-slate-200 p-2 bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-navy-950">
+                  <Image
+                    src="/images/student-counseling.jpg"
+                    alt="Student Counseling and Overseas Admissions Desk"
+                    fill
+                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent flex items-end p-2">
+                    <span className="text-[10px] font-bold text-amber-300">Advisory Desk</span>
+                  </div>
+                </div>
+                <div className="pt-2 text-[11px] font-semibold text-charcoal-700 text-center">
+                  1-on-1 Visa Consultation
+                </div>
               </div>
             </div>
           </div>

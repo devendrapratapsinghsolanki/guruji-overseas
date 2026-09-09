@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   BookOpen,
   Headphones,
@@ -210,19 +211,30 @@ export function TestPrepSection() {
 
           {/* Right Column: Split-Screen Real Photography Composition */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="rounded-xl overflow-hidden border border-border-subtle bg-surface-gray p-2 shadow-card">
-              <PhotoPlaceholder
-                alt="Guruji Overseas Classroom and Practice Environment"
-                category="classroom"
-                label="Classroom Training & Practice Lab"
-                aspectRatio="4/3"
-                priority
-              />
+            <div className="group rounded-2xl overflow-hidden border border-slate-200 bg-white p-2.5 shadow-card hover:shadow-card-hover transition-all duration-300">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-navy-950">
+                <Image
+                  src="/images/ielts-pte-lab.jpg"
+                  alt="Guruji Overseas IELTS & PTE Computer Lab Classroom"
+                  fill
+                  className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
+                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">
+                    Official Training Setup
+                  </span>
+                  <span className="text-sm font-bold">
+                    Computer Headset Stations &amp; Speaking Cubicles
+                  </span>
+                </div>
+              </div>
               <div className="p-3 text-xs text-charcoal-700 flex items-center justify-between">
                 <span className="font-semibold text-navy-950">
                   Daily Interactive Sessions
                 </span>
-                <span className="text-slate-400">Rohtak Classroom</span>
+                <span className="text-amber-500 font-semibold">Rohtak Classroom Center</span>
               </div>
             </div>
 

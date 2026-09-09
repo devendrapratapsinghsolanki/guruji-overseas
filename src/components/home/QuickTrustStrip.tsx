@@ -7,6 +7,7 @@ import {
   GraduationCap,
   FileCheck2,
   ArrowUpRight,
+  Sparkles,
 } from "lucide-react";
 import { Container } from "@/components/ui";
 
@@ -48,6 +49,19 @@ const quickServices = [
   },
 ];
 
+const marqueeItems = [
+  { label: "University of Toronto", country: "Canada 🇨🇦" },
+  { label: "University of Manchester", country: "UK 🇬🇧" },
+  { label: "Monash University", country: "Australia 🇦🇺" },
+  { label: "Northeastern University", country: "USA 🇺🇸" },
+  { label: "University of Auckland", country: "New Zealand 🇳🇿" },
+  { label: "Technical University of Munich", country: "Germany 🇩🇪" },
+  { label: "Trinity College Dublin", country: "Ireland 🇮🇪" },
+  { label: "University of British Columbia", country: "Canada 🇨🇦" },
+  { label: "University of Sydney", country: "Australia 🇦🇺" },
+  { label: "McGill University", country: "Canada 🇨🇦" },
+];
+
 export function QuickTrustStrip() {
   return (
     <section className="bg-surface-white border-b border-border-subtle relative z-20">
@@ -86,6 +100,26 @@ export function QuickTrustStrip() {
           })}
         </div>
       </Container>
+
+      {/* Infinite Animated University Ticker Bar */}
+      <div className="border-t border-slate-200 bg-navy-950 text-white py-2.5 overflow-hidden relative">
+        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-navy-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-navy-950 to-transparent z-10 pointer-events-none" />
+
+        <div className="animate-marquee flex items-center gap-8 text-xs">
+          {[...marqueeItems, ...marqueeItems].map((uni, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-2 whitespace-nowrap text-slate-300 font-medium"
+            >
+              <span className="text-amber-400">★</span>
+              <span className="text-white font-semibold">{uni.label}</span>
+              <span className="text-slate-400 text-[11px]">({uni.country})</span>
+              <span className="text-slate-600">•</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

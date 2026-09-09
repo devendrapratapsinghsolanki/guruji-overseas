@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Compass, Calendar, MapPin } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Compass, Calendar, MapPin, Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { Container, Badge, SectionHeading } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,7 @@ interface DestinationCardData {
   workRights: string;
   size: "large" | "medium";
   ctaText: string;
+  image: string;
 }
 
 const destinations: DestinationCardData[] = [
@@ -27,7 +29,8 @@ const destinations: DestinationCardData[] = [
     intakes: "Jan, May, Sep",
     workRights: "Up to 3 Years PGWP",
     size: "large",
-    ctaText: "Explore Canada",
+    ctaText: "Explore Canada Admissions",
+    image: "/images/campus-life.jpg",
   },
   {
     id: "uk",
@@ -39,7 +42,8 @@ const destinations: DestinationCardData[] = [
     intakes: "Jan, May, Sep",
     workRights: "2-Year Graduate Route",
     size: "large",
-    ctaText: "Explore UK",
+    ctaText: "Explore UK Admissions",
+    image: "/images/global-university-campus.jpg",
   },
   {
     id: "australia",
@@ -52,18 +56,20 @@ const destinations: DestinationCardData[] = [
     workRights: "2-4 Years Post-Study Work",
     size: "medium",
     ctaText: "Explore Australia",
+    image: "/images/foreign-students-campus.jpg",
   },
   {
     id: "new-zealand",
     name: "New Zealand",
     flag: "🇳🇿",
-    tagline: "Hands-on Practical Education & Unmatched Quality of Life",
+    tagline: "Hands-on Practical Education & High Quality of Life",
     description:
       "A peaceful and supportive study environment with eight state-funded universities, strong industry linkages, and stay-back rights.",
     intakes: "Feb, Jul",
-    workRights: "Up to 3 Years Post-Study",
+    workRights: "Up to 3 Years Stayback",
     size: "medium",
     ctaText: "Explore New Zealand",
+    image: "/images/campus-life.jpg",
   },
   {
     id: "usa",
@@ -76,6 +82,7 @@ const destinations: DestinationCardData[] = [
     workRights: "1-3 Years OPT / STEM",
     size: "medium",
     ctaText: "Explore USA",
+    image: "/images/international-graduates.jpg",
   },
   {
     id: "germany",
@@ -88,6 +95,7 @@ const destinations: DestinationCardData[] = [
     workRights: "18-Month Jobseeker Visa",
     size: "medium",
     ctaText: "Explore Germany",
+    image: "/images/global-university-campus.jpg",
   },
   {
     id: "ireland",
@@ -100,6 +108,7 @@ const destinations: DestinationCardData[] = [
     workRights: "2-Year Third Level Scheme",
     size: "medium",
     ctaText: "Explore Ireland",
+    image: "/images/foreign-students-campus.jpg",
   },
 ];
 
@@ -108,68 +117,89 @@ export function DestinationsSection() {
   const mediumDestinations = destinations.filter((d) => d.size === "medium");
 
   return (
-    <section id="destinations" className="py-20 lg:py-28 bg-surface-gray/50 border-b border-border-subtle">
+    <section id="destinations" className="py-20 lg:py-28 bg-surface-gray/50 border-b border-border-subtle relative overflow-hidden">
       <Container>
         <SectionHeading
           kicker="Study Destinations"
-          title="Choose Your Destination"
-          subtitle="Explore the seven major international destinations we advise on from our Rohtak office, each offering distinct academic advantages and post-study opportunities."
+          title="Choose Your Study Abroad Destination"
+          subtitle="Explore the seven major international destinations we advise on from our Rohtak office, each offering distinct academic advantages, post-study work rights, and global career pathways."
         />
 
         {/* Top Asymmetric Row: 2 Major Featured Countries (Canada & UK) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
           {largeDestinations.map((dest, idx) => (
             <div
               key={dest.id}
               className={cn(
-                "rounded-xl border border-border-subtle bg-white p-7 lg:p-9 flex flex-col justify-between hover:border-slate-300 hover:shadow-card transition-all duration-200",
+                "group rounded-2xl border border-slate-200 bg-white overflow-hidden flex flex-col justify-between hover:border-royal-300 hover:shadow-card-hover transition-all duration-300",
                 idx === 0 ? "lg:col-span-6" : "lg:col-span-6"
               )}
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">{dest.flag}</span>
-                    <div>
-                      <h3 className="text-2xl font-bold text-navy-950">
+                {/* Visual Image Header */}
+                <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full overflow-hidden bg-navy-950">
+                  <Image
+                    src={dest.image}
+                    alt={`${dest.name} Study Abroad Campuses`}
+                    fill
+                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/30 to-transparent" />
+
+                  {/* Badges on image */}
+                  <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
+                    <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
+                      <span className="text-xl">{dest.flag}</span>
+                      <span className="text-xs font-extrabold text-navy-950">
                         {dest.name}
-                      </h3>
-                      <span className="text-xs font-semibold text-royal-600">
-                        {dest.workRights}
                       </span>
                     </div>
+                    <Badge variant="navy" size="sm" className="bg-navy-900/90 text-white border-white/20">
+                      Major Intake: {dest.intakes.split(",")[0]}
+                    </Badge>
                   </div>
-                  <Badge variant="navy" size="sm">
-                    Major Intake: {dest.intakes.split(",")[0]}
-                  </Badge>
+
+                  <div className="absolute bottom-3 inset-x-4 z-10">
+                    <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block">
+                      {dest.workRights}
+                    </span>
+                    <h3 className="text-xl font-bold text-white drop-shadow-sm">
+                      Study in {dest.name}
+                    </h3>
+                  </div>
                 </div>
 
-                <p className="text-xs font-bold text-charcoal-700 mb-2 uppercase tracking-wider">
-                  {dest.tagline}
-                </p>
-                <p className="text-sm text-charcoal-600 leading-relaxed mb-6">
-                  {dest.description}
-                </p>
+                <div className="p-6 sm:p-7">
+                  <p className="text-xs font-bold text-royal-700 mb-2 uppercase tracking-wider">
+                    {dest.tagline}
+                  </p>
+                  <p className="text-sm text-charcoal-600 leading-relaxed mb-6">
+                    {dest.description}
+                  </p>
 
-                <div className="grid grid-cols-2 gap-3 py-3 px-4 rounded-lg bg-surface-gray text-xs text-charcoal-700 mb-6">
-                  <div>
-                    <span className="text-slate-400 block text-[11px]">Primary Intakes:</span>
-                    <span className="font-semibold text-navy-900">{dest.intakes}</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 block text-[11px]">Stayback Rights:</span>
-                    <span className="font-semibold text-navy-900">{dest.workRights}</span>
+                  <div className="grid grid-cols-2 gap-3 py-3 px-4 rounded-xl bg-surface-gray text-xs text-charcoal-700 mb-2">
+                    <div>
+                      <span className="text-slate-400 block text-[11px] font-medium">Primary Intakes:</span>
+                      <span className="font-bold text-navy-900">{dest.intakes}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block text-[11px] font-medium">Stayback Rights:</span>
+                      <span className="font-bold text-navy-900">{dest.workRights}</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <Link
-                href="#inquiry"
-                className="inline-flex items-center gap-2 text-sm font-bold text-royal-700 hover:text-royal-800 transition-colors group"
-              >
-                <span>{dest.ctaText}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="p-6 sm:p-7 pt-0">
+                <Link
+                  href="#inquiry"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-royal-600 hover:text-royal-800 transition-colors group/link"
+                >
+                  <span>{dest.ctaText}</span>
+                  <ArrowRight className="w-4 h-4 group-link:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -179,33 +209,51 @@ export function DestinationsSection() {
           {mediumDestinations.map((dest) => (
             <div
               key={dest.id}
-              className="rounded-lg border border-border-subtle bg-white p-5 flex flex-col justify-between hover:border-slate-300 hover:shadow-card transition-all duration-200"
+              className="group rounded-2xl border border-slate-200 bg-white overflow-hidden flex flex-col justify-between hover:border-royal-300 hover:shadow-card-hover transition-all duration-300"
             >
               <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="text-2xl">{dest.flag}</span>
-                  <h4 className="text-base font-bold text-navy-950">
+                {/* Mini Image Banner */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={dest.image}
+                    alt={dest.name}
+                    fill
+                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent" />
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                    <span className="text-xl">{dest.flag}</span>
+                    <span className="text-[11px] font-bold text-amber-300">
+                      {dest.workRights}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <h4 className="text-base font-bold text-navy-950 mb-1.5 group-hover:text-royal-600 transition-colors">
                     {dest.name}
                   </h4>
+                  <p className="text-xs text-charcoal-600 leading-relaxed line-clamp-3 mb-4">
+                    {dest.description}
+                  </p>
                 </div>
-
-                <p className="text-xs text-charcoal-600 leading-relaxed mb-4 line-clamp-4">
-                  {dest.description}
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <div className="text-[11px] text-slate-500 mb-3">
-                  <span className="font-semibold text-charcoal-700">Intakes:</span>{" "}
-                  {dest.intakes}
+              <div className="p-5 pt-0">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <div className="text-[11px] text-slate-500">
+                    <span className="font-semibold text-charcoal-700">Intakes:</span>{" "}
+                    {dest.intakes.split(",")[0]}
+                  </div>
+                  <Link
+                    href="#inquiry"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-royal-600 hover:text-royal-800 transition-colors group/arrow"
+                  >
+                    <span>Details</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-arrow:translate-x-0.5 transition-transform" />
+                  </Link>
                 </div>
-                <Link
-                  href="#inquiry"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-royal-700 hover:text-royal-800 transition-colors group"
-                >
-                  <span>{dest.ctaText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
               </div>
             </div>
           ))}

@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     "Visa Consultant Rohtak Haryana",
     "Student Visa Assistance",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

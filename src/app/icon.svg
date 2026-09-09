@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1B3D" />
+      <stop offset="100%" stop-color="#071120" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="royalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base container with subtle border -->
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)" />
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6" />
+
+  <!-- Global Arc / Orbit of Overseas journey -->
+  <ellipse cx="32" cy="35" rx="23" ry="11" fill="none" stroke="url(#royalGrad)" stroke-width="2" stroke-dasharray="3 2" transform="rotate(-20 32 35)" opacity="0.8" />
+  
+  <!-- Stylized graduation mortarboard cap representing overseas education -->
+  <path d="M32 12 L50 20 L32 28 L14 20 Z" fill="url(#goldGrad)" />
+  <path d="M22 24.5 V33 C22 36 32 39 32 39 C32 39 42 36 42 33 V24.5" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Tassel -->
+  <path d="M46 22 V31" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round" />
+  <circle cx="46" cy="32" r="1.5" fill="#FCD34D" />
+
+  <!-- Letters "GO" for Guruji Overseas in high legibility bold -->
+  <!-- Letter G -->
+  <path d="M26.5 45 C25.5 43.5 24 43 22 43 C18.5 43 16 46 16 50 C16 54 18.5 57 22.5 57 C26 57 27.5 55 27.5 52 H22.5" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Letter O -->
+  <ellipse cx="38" cy="50" rx="5.5" ry="7" fill="none" stroke="url(#goldGrad)" stroke-width="2.6" />
+
+  <!-- Little flight airplane accent -->
+  <path d="M49 41 L53 43 L50 45 L48 48 L47 46 L49 44 Z" fill="#60A5FA" />
+</svg>

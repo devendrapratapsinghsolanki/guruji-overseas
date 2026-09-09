@@ -57,6 +57,10 @@ export function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Context Badge: Location & Verified Status */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                2026 - 2027 Intakes Open
+              </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                 Established {COMPANY_INFO.establishedYear}
@@ -122,25 +126,45 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Architectural Multi-Frame Real Photography Composition */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            {/* Main Featured Photo Frame: Real Leadership & Office */}
-            <div className="relative rounded-lg overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card">
-              <div className="relative aspect-[16/10] rounded overflow-hidden bg-navy-950">
+          {/* Right Column: Multi-Frame Real Photography Composition with Floating Animated Badges */}
+          <div className="lg:col-span-5 relative flex flex-col gap-4">
+            {/* Ambient subtle glow */}
+            <div className="absolute -top-10 -right-10 w-72 h-72 bg-royal-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Floating Top Badge: 500+ Universities */}
+            <div className="hidden sm:flex absolute -top-4 -left-6 z-20 animate-float items-center gap-2.5 px-3.5 py-2 rounded-xl glass-navy shadow-dropdown border border-white/20">
+              <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs">
+                🎓
+              </div>
+              <div className="text-left">
+                <p className="text-[11px] font-bold text-white leading-tight">500+ Global Universities</p>
+                <p className="text-[10px] text-slate-300">Canada, UK, Aus, USA &amp; EU</p>
+              </div>
+            </div>
+
+            {/* Main Featured Photo Frame: Real Leadership & Center */}
+            <div className="group relative rounded-xl overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card hover:border-slate-600 transition-all duration-300">
+              <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-navy-950">
                 <Image
                   src="/images/owner.jpg"
                   alt="Founder & Managing Director - Guruji Overseas"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-top img-zoom"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/25 to-transparent flex flex-col justify-end p-4 text-white">
-                  <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
-                    Direct Leadership Guidance
-                  </span>
-                  <span className="text-sm font-bold text-white">
-                    Meet Directly With Senior Leadership in Rohtak
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/30 to-transparent flex flex-col justify-end p-4 text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-amber-500 text-navy-950 px-2 py-0.5 rounded uppercase tracking-wider">
+                      ★ Senior Leadership
+                    </span>
+                    <span className="text-[10px] text-slate-300">
+                      Direct Counseling
+                    </span>
+                  </div>
+                  <span className="text-sm sm:text-base font-bold text-white leading-tight">
+                    Visit Our Rohtak Office for Face-to-Face Guidance
                   </span>
                 </div>
               </div>
@@ -148,46 +172,82 @@ export function Hero() {
                 <span className="font-semibold text-white">
                   Sheetal Lifestyle Mall (Opp. D-Park)
                 </span>
-                <span className="text-slate-400 text-[11px]">Rohtak Center</span>
+                <span className="text-amber-400 text-[11px] font-medium">Rohtak Center</span>
               </div>
             </div>
 
-            {/* Two Complementary Real Photography Frames (Classroom & Exterior Signage) */}
+            {/* Two Complementary Photography Frames: Foreign Students & Prestigious University */}
             <div className="grid grid-cols-2 gap-3.5">
-              <div className="rounded-lg overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card">
-                <PhotoPlaceholder
-                  alt="Guruji Overseas Classroom and Test Preparation Environment"
-                  category="classroom"
-                  label="IELTS & PTE Classroom Lab"
-                  aspectRatio="4/3"
-                />
-                <div className="pt-2 text-[11px] font-medium text-slate-300 text-center">
-                  Daily Batch Practice
+              {/* Foreign Students on Campus */}
+              <div className="group rounded-xl overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card hover:border-slate-600 transition-all duration-300">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-navy-950">
+                  <Image
+                    src="/images/foreign-students-campus.jpg"
+                    alt="Foreign university students studying abroad on campus"
+                    fill
+                    className="object-cover img-zoom"
+                    sizes="(max-width: 1024px) 50vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-transparent flex flex-col justify-end p-2.5">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase tracking-wider">
+                      Study Abroad
+                    </span>
+                    <span className="text-xs font-semibold text-white truncate">
+                      Global Campus Life
+                    </span>
+                  </div>
+                </div>
+                <div className="pt-2 text-[11px] font-medium text-slate-300 text-center flex items-center justify-center gap-1">
+                  <span>Top Ranked Campuses</span>
                 </div>
               </div>
 
-              <div className="rounded-lg overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card">
-                <PhotoPlaceholder
-                  alt="Guruji Overseas Exterior Mall Signage"
-                  category="signage"
-                  label="Mall Exterior Signage"
-                  aspectRatio="4/3"
-                />
-                <div className="pt-2 text-[11px] font-medium text-slate-300 text-center">
-                  Easily Accessible Location
+              {/* Prestigious Global University Campus */}
+              <div className="group rounded-xl overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card hover:border-slate-600 transition-all duration-300">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-navy-950">
+                  <Image
+                    src="/images/global-university-campus.jpg"
+                    alt="Prestigious international university architecture"
+                    fill
+                    className="object-cover img-zoom"
+                    sizes="(max-width: 1024px) 50vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-transparent flex flex-col justify-end p-2.5">
+                    <span className="text-[10px] font-bold text-amber-300 uppercase tracking-wider">
+                      Admissions
+                    </span>
+                    <span className="text-xs font-semibold text-white truncate">
+                      World Class Degrees
+                    </span>
+                  </div>
                 </div>
+                <div className="pt-2 text-[11px] font-medium text-slate-300 text-center flex items-center justify-center gap-1">
+                  <span>Accredited Programs</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Bottom Badge: 100% Visa Support */}
+            <div className="hidden sm:flex absolute -bottom-3 -right-4 z-20 animate-float-delayed items-center gap-2.5 px-3.5 py-2 rounded-xl glass-navy shadow-dropdown border border-white/20">
+              <div className="w-8 h-8 rounded-lg bg-royal-500/20 text-royal-400 flex items-center justify-center font-bold text-xs">
+                ✈️
+              </div>
+              <div className="text-left">
+                <p className="text-[11px] font-bold text-white leading-tight">100% Visa Filing &amp; SOP</p>
+                <p className="text-[10px] text-slate-300">Expert Embassy Preparation</p>
               </div>
             </div>
 
             {/* Verified Reputation Card: Honest attribution to Justdial */}
-            <div className="p-3.5 rounded-lg bg-navy-850/90 border border-navy-700/80 flex items-center justify-between">
+            <div className="p-3.5 rounded-xl bg-navy-850/95 border border-navy-700/80 flex items-center justify-between hover:border-navy-600 transition-colors">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                  <Star className="w-5 h-5 fill-amber-400" />
+                <div className="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                  <Star className="w-5 h-5 fill-amber-400 animate-pulse-subtle" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-white flex items-center gap-1.5">
                     <span>5.0 Rating (300+ Reviews)</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                   </div>
                   <div className="text-[11px] text-slate-400">
                     Justdial Claimed &amp; Verified Business Listing
@@ -196,9 +256,9 @@ export function Hero() {
               </div>
               <a
                 href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
-                className="text-xs font-semibold text-royal-400 hover:text-royal-300 flex items-center gap-1"
+                className="text-xs font-semibold text-royal-400 hover:text-royal-300 flex items-center gap-1 group/btn"
               >
-                <Phone className="w-3.5 h-3.5" />
+                <Phone className="w-3.5 h-3.5 group-hover/btn:rotate-12 transition-transform" />
                 <span>Call Office</span>
               </a>
             </div>

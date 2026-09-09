@@ -1,4 +1,4 @@
-wexport const COMPANY_INFO = {
+export const COMPANY_INFO = {
   brandName: "GURUJI OVERSEAS",
   legalName: "GURUJI OVERSEAS IMMIGRATION PRIVATE LIMITED",
   tagline: "Overseas Education & Visa Assistance Consultancy",
