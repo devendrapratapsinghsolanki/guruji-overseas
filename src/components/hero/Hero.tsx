@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Phone,
@@ -123,15 +124,26 @@ export function Hero() {
 
           {/* Right Column: Architectural Multi-Frame Real Photography Composition */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            {/* Main Featured Photo Frame (Office & Counseling Desk) */}
+            {/* Main Featured Photo Frame: Real Leadership & Office */}
             <div className="relative rounded-lg overflow-hidden bg-navy-850 border border-navy-800 p-2 shadow-card">
-              <PhotoPlaceholder
-                alt="Guruji Overseas Rohtak Office - Counseling Desk and Student Interaction"
-                category="counseling"
-                label="Office Interior & Counseling Desk"
-                aspectRatio="16/9"
-                priority
-              />
+              <div className="relative aspect-[16/10] rounded overflow-hidden bg-navy-950">
+                <Image
+                  src="/images/owner.jpg"
+                  alt="Founder & Managing Director - Guruji Overseas"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/25 to-transparent flex flex-col justify-end p-4 text-white">
+                  <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
+                    Direct Leadership Guidance
+                  </span>
+                  <span className="text-sm font-bold text-white">
+                    Meet Directly With Senior Leadership in Rohtak
+                  </span>
+                </div>
+              </div>
               <div className="pt-2.5 pb-1 px-2 flex items-center justify-between text-xs text-slate-300">
                 <span className="font-semibold text-white">
                   Sheetal Lifestyle Mall (Opp. D-Park)

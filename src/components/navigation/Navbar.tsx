@@ -155,8 +155,8 @@ export function Navbar() {
     <>
       {/* Top Utility / Contact Bar */}
       <div className="bg-navy-950 text-slate-300 text-xs py-2 border-b border-navy-900 select-none">
-        <Container className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
+        <Container className="flex items-center justify-between gap-4 whitespace-nowrap overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-3 shrink-0">
             <span className="text-amber-400 font-semibold flex items-center gap-1">
               Established {COMPANY_INFO.establishedYear}
             </span>
@@ -171,7 +171,7 @@ export function Navbar() {
             </span>
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 shrink-0">
             <div className="hidden lg:flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
               <span>{COMPANY_INFO.location.landmark}, {COMPANY_INFO.location.city}</span>
@@ -196,12 +196,12 @@ export function Navbar() {
             : "bg-white border-b border-slate-200 py-4"
         )}
       >
-        <Container className="flex items-center justify-between">
+        <Container className="flex items-center justify-between gap-4 whitespace-nowrap">
           {/* Logo */}
           <Logo />
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium text-charcoal-700">
+          <div className="hidden xl:flex items-center gap-1 text-sm font-medium text-charcoal-700 whitespace-nowrap">
             {/* 1. Study Abroad Dropdown */}
             <div
               className="relative"

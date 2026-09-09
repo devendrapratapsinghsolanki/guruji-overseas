@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   CheckCircle,
   MapPin,
@@ -54,18 +55,38 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Authentic Photography Composition */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="rounded-xl overflow-hidden border border-border-subtle p-2 bg-surface-gray shadow-card">
-              <PhotoPlaceholder
-                alt="Guruji Overseas Rohtak Office - Counseling Team and Interaction"
-                category="counseling"
-                label="Student Counseling & Advisory at Rohtak Office"
-                aspectRatio="16/9"
-              />
-              <div className="p-3 text-xs text-charcoal-600 flex items-center justify-between">
+            <div className="rounded-xl overflow-hidden border border-border-subtle bg-white p-2.5 shadow-card">
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-slate-100">
+                <Image
+                  src="/images/owner.jpg"
+                  alt="Managing Director & Founder - Guruji Overseas Immigration Pvt. Ltd."
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent flex flex-col justify-end p-6 text-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="px-2.5 py-0.5 rounded bg-amber-500 text-navy-950 text-[11px] font-bold uppercase tracking-wider">
+                      Managing Director
+                    </span>
+                    <span className="text-xs text-slate-300">
+                      Established 2022
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white leading-tight">
+                    Guruji Overseas Leadership
+                  </h3>
+                  <p className="text-xs text-slate-300 mt-1 max-w-md">
+                    Direct, honest, and expert overseas education advisory for students across Haryana.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-3 px-2 flex items-center justify-between text-xs text-charcoal-700">
                 <span className="font-semibold text-navy-950">
-                  {COMPANY_INFO.location.addressLine1}
+                  {COMPANY_INFO.legalName}
                 </span>
-                <span className="text-slate-400">Rohtak Center</span>
+                <span className="text-slate-500">Sheetal Lifestyle Mall, Rohtak</span>
               </div>
             </div>
 

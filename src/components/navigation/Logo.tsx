@@ -83,25 +83,25 @@ export function Logo({
         </svg>
       </div>
 
-      {/* Brand Typography */}
-      <div className="flex flex-col">
+      {/* Brand Typography - Single Line */}
+      <div className="flex items-center gap-2 whitespace-nowrap">
         <div className="flex items-baseline gap-1">
           <span
             className={cn(
-              "font-extrabold text-lg tracking-tight leading-none",
+              "font-extrabold text-lg sm:text-xl tracking-tight leading-none",
               isDark ? "text-white" : "text-navy-900"
             )}
           >
             GURUJI
           </span>
-          <span className="font-extrabold text-lg tracking-tight leading-none text-royal-600">
+          <span className="font-extrabold text-lg sm:text-xl tracking-tight leading-none text-royal-600">
             OVERSEAS
           </span>
         </div>
         {showTagline && (
           <span
             className={cn(
-              "text-[10px] tracking-wider uppercase font-medium mt-0.5 leading-none",
+              "text-[10px] sm:text-xs tracking-wider uppercase font-semibold leading-none pl-2 border-l border-slate-300 dark:border-slate-700 hidden sm:inline-block whitespace-nowrap",
               isDark ? "text-slate-400" : "text-charcoal-600"
             )}
           >
