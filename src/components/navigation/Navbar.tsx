@@ -554,19 +554,7 @@ export function Navbar() {
                 >
                   <span className="flex items-center gap-2">
                     <Award className="w-4 h-4 text-amber-500" />
-                    <span>Success Stories &amp; Reviews</span>
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
-                </Link>
-
-                <Link
-                  href="/gallery"
-                  onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
-                >
-                  <span className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-royal-600" />
-                    <span>Photo Gallery</span>
+                    <span>Success Stories &amp; Visa Results</span>
                   </span>
                   <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { FloatingActions, AutoWelcomeEnquiryModal } from "@/components/common";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -43,6 +44,10 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-white text-gray-900 flex flex-col font-sans">
         {children}
+        {/* Scroll-aware floating WhatsApp & Quick Enquiry Widget */}
+        <FloatingActions />
+        {/* Welcome Enquiry Popup Modal on Initial Visit */}
+        <AutoWelcomeEnquiryModal />
       </body>
     </html>
   );

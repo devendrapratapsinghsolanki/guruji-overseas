@@ -151,12 +151,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/success-stories" className="hover:text-amber-400 transition-colors">
-                  Success Stories (Justdial)
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:text-amber-400 transition-colors">
-                  Office &amp; Lab Gallery
+                  Success Stories &amp; Visa Results
                 </Link>
               </li>
               <li>

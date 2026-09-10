@@ -10,8 +10,7 @@ import { JourneySection } from "@/components/journey/JourneySection";
 import { UniversitiesSection } from "@/components/universities/UniversitiesSection";
 import { VisaServicesSection } from "@/components/visa/VisaServicesSection";
 import { ProfileAssessmentSection } from "@/components/forms/ProfileAssessmentSection";
-import { SuccessStoriesSection } from "@/components/testimonials/SuccessStoriesSection";
-import { GallerySection } from "@/components/gallery/GallerySection";
+import { ReviewsAndVisaMarqueeSection } from "@/components/testimonials";
 import { BlogSection } from "@/components/blog/BlogSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 import { ContactSection } from "@/components/contact/ContactSection";
@@ -24,7 +23,7 @@ import { Footer } from "@/components/footer/Footer";
  * → TRUST (Quick Services & Trust Strip)
  * → EXPLORE (Destinations & Universities)
  * → UNDERSTAND (About Us, Why Us, Test Prep, 7-Step Journey)
- * → COUNSEL (Visa Services, Success Stories, Gallery, Blog)
+ * → PROVE (Visa Services, Reviews & Visa Approvals Marquee, Blog)
  * → CONVERT (Profile Assessment, Final CTA, Direct Contact)
  */
 export default function Home() {
@@ -51,7 +50,7 @@ export default function Home() {
       {/* Section 6: IELTS & PTE Preparation */}
       <TestPrepSection />
 
-      {/* Section 7: Study Abroad Journey (Horizontal Desktop / Vertical Mobile Timeline) */}
+      {/* Section 7: Study Abroad Journey */}
       <JourneySection />
 
       {/* Section 8: Institution Discovery & Search */}
@@ -63,19 +62,16 @@ export default function Home() {
       {/* Section 10: Profile Assessment Form */}
       <ProfileAssessmentSection />
 
-      {/* Section 11: Real Success Stories (Justdial Verified) */}
-      <SuccessStoriesSection />
+      {/* Section 11: Real Student Reviews (L-to-R) & Placed Visa Students (R-to-L) Marquee */}
+      <ReviewsAndVisaMarqueeSection />
 
-      {/* Section 12: Real Company Gallery (Masonry Layout) */}
-      <GallerySection />
-
-      {/* Section 13: Editorial Blog & Guides */}
+      {/* Section 12: Editorial Blog & Guides */}
       <BlogSection />
 
-      {/* Section 14: Final Call to Action */}
+      {/* Section 13: Final Call to Action */}
       <FinalCtaSection />
 
-      {/* Section 15: Contact & Office Location */}
+      {/* Section 14: Contact & Office Location */}
       <ContactSection />
 
       {/* Institutional Footer */}

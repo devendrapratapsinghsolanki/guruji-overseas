@@ -1,49 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Phone,
   MapPin,
   Clock,
   Mail,
-  MessageCircle,
-  CheckCircle2,
-  Lock,
-  ArrowRight,
-  Send,
-  Building2,
   Navigation,
-  ShieldCheck,
-  CalendarCheck,
 } from "lucide-react";
 
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { PageHero } from "@/components/layout/PageHero";
-import { Container, Badge, Button, Input, Select, Textarea, SectionHeading } from "@/components/ui";
+import { Container, Badge, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
+import { BookFreeCounsellingForm } from "@/components/forms/BookFreeCounsellingForm";
 
 export default function ContactPage() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    phone: "",
-    email: "",
-    destination: "canada",
-    service: "study-abroad",
-    qualification: "bachelors",
-    city: "",
-    message: "",
-  });
-
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.contact.whatsappNumber}?text=${encodeURIComponent(
     "Hello Guruji Overseas, I would like to book a free in-person counselling session at your Rohtak office."
   )}`;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-  };
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -65,7 +41,7 @@ export default function ContactPage() {
         primaryCtaHref={whatsappUrl}
       />
 
-      {/* Main Contact Grid: Info Cards + Interactive Form */}
+      {/* Main Contact Grid: Info Cards + Reusable Booking Form */}
       <section className="py-16 sm:py-24 bg-surface-gray/50 border-b border-border-subtle">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -178,144 +154,22 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right Column: Accessible Interactive Enquiry Form */}
+            {/* Right Column: Reusable Book Free Counselling Form */}
             <div className="lg:col-span-7">
-              <div className="p-7 sm:p-10 rounded-2xl bg-white border border-slate-200 shadow-card">
-                {formSubmitted ? (
-                  <div className="text-center py-12 space-y-4 animate-in fade-in duration-200">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
-                      <CheckCircle2 className="w-9 h-9" />
-                    </div>
-                    <h3 className="text-2xl font-extrabold text-navy-950">
-                      Enquiry Submitted Successfully
-                    </h3>
-                    <p className="text-sm text-charcoal-600 max-w-md mx-auto leading-relaxed">
-                      Thank you for contacting Guruji Overseas. Our certified advisor from the Rohtak office will review your details and contact you within 24 working hours.
-                    </p>
-                    <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs"
-                      >
-                        <span>Need Instant Advice? Chat on WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                      <h3 className="text-xl font-bold text-navy-950 mb-1">
-                        Book a Free Profile Assessment
-                      </h3>
-                      <p className="text-xs text-charcoal-600">
-                        Fill out the form below to receive expert guidance from our Rohtak advisory team.
-                      </p>
-                    </div>
+              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-card">
+                <div className="mb-6">
+                  <Badge variant="amber" size="sm" className="mb-1.5">
+                    Zero Obligation Evaluation
+                  </Badge>
+                  <h3 className="text-xl sm:text-2xl font-bold text-navy-950">
+                    Book Free Counselling Session
+                  </h3>
+                  <p className="text-xs sm:text-sm text-charcoal-600 mt-1">
+                    Fill in your academic and study goals below. Our senior advisor in Rohtak will review your eligibility and reach out within 24 hours.
+                  </p>
+                </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Input
-                        label="Full Name *"
-                        placeholder="e.g. Rahul Sharma"
-                        required
-                        value={formData.fullName}
-                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      />
-                      <Input
-                        label="Mobile / WhatsApp Number *"
-                        type="tel"
-                        placeholder="+91 7056 544 009"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Input
-                        label="Email Address (Optional)"
-                        type="email"
-                        placeholder="yourname@gmail.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      />
-                      <Input
-                        label="Your City / District"
-                        placeholder="e.g. Rohtak / Sonipat / Panipat"
-                        value={formData.city}
-                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <Select
-                        label="Preferred Country"
-                        value={formData.destination}
-                        onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                        options={[
-                          { value: "canada", label: "Canada" },
-                          { value: "uk", label: "United Kingdom" },
-                          { value: "australia", label: "Australia" },
-                          { value: "new-zealand", label: "New Zealand" },
-                          { value: "usa", label: "United States" },
-                          { value: "germany", label: "Germany" },
-                          { value: "undecided", label: "Need Advice to Choose" },
-                        ]}
-                      />
-                      <Select
-                        label="Primary Service"
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        options={[
-                          { value: "study-abroad", label: "Study Abroad Admissions" },
-                          { value: "ielts-prep", label: "IELTS Classroom Coaching" },
-                          { value: "pte-prep", label: "PTE Computer Lab Coaching" },
-                          { value: "student-visa", label: "Student Visa Filing" },
-                          { value: "visitor-visa", label: "Visitor / Tourist Visa" },
-                          { value: "dependent-visa", label: "Dependent / Spouse Visa" },
-                        ]}
-                      />
-                      <Select
-                        label="Highest Qualification"
-                        value={formData.qualification}
-                        onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                        options={[
-                          { value: "12th", label: "12th Standard" },
-                          { value: "diploma", label: "Polytechnic / Diploma" },
-                          { value: "bachelors", label: "Bachelor's Degree" },
-                          { value: "masters", label: "Master's Degree" },
-                        ]}
-                      />
-                    </div>
-
-                    <Textarea
-                      label="Your Query / Background (Optional)"
-                      placeholder="Briefly describe your academic background, IELTS/PTE score (if taken), or any specific queries..."
-                      rows={3}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    />
-
-                    <Button
-                      variant="royal"
-                      size="lg"
-                      type="submit"
-                      className="w-full mt-2 font-bold py-3 shadow-md"
-                      rightIcon={<ArrowRight className="w-4 h-4" />}
-                    >
-                      Submit Free Consultation Request
-                    </Button>
-
-                    <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-500 pt-3 border-t border-slate-200">
-                      <span className="flex items-center gap-1">
-                        <Lock className="w-3.5 h-3.5 text-slate-400" />
-                        <span>Your data is strictly confidential. Zero spam.</span>
-                      </span>
-                      <span>Rohtak Office: Sheetal Lifestyle Mall</span>
-                    </div>
-                  </form>
-                )}
+                <BookFreeCounsellingForm sourceContext="Contact Page Inquiry" />
               </div>
             </div>
           </div>
