@@ -31,7 +31,7 @@ export const COMPANY_INFO = {
     listingStatus: "Claimed & Verified Business",
   },
 
-  // 10 Core Services strictly as defined by the company
+  // Core Services strictly as defined by the company (Work Visa removed)
   coreServices: [
     {
       id: "ielts-prep",
@@ -70,12 +70,6 @@ export const COMPANY_INFO = {
       category: "Visa Services",
     },
     {
-      id: "work-visa",
-      title: "Work Visa Guidance",
-      shortDesc: "Procedural advisory and filing support for post-study work permits and employment-linked visa categories.",
-      category: "Visa Services",
-    },
-    {
       id: "visitor-visa",
       title: "Visitor / Travel Visa Guidance",
       shortDesc: "Tourist and visitor visa application processing for family visits, convocation ceremonies, and travel.",
@@ -84,7 +78,7 @@ export const COMPANY_INFO = {
     {
       id: "dependent-visa",
       title: "Dependent / Spouse Visa Guidance",
-      shortDesc: "Assistance for spouses and dependent family members wishing to join students or workers overseas.",
+      shortDesc: "Assistance for spouses and dependent family members wishing to join students overseas.",
       category: "Visa Services",
     },
     {
@@ -95,7 +89,7 @@ export const COMPANY_INFO = {
     },
   ],
 
-  // 7 Primary Study Destinations
+  // 6 Primary Study Destinations
   primaryDestinations: [
     {
       id: "canada",
@@ -138,13 +132,6 @@ export const COMPANY_INFO = {
       flag: "🇩🇪",
       highlight: "High-ranking engineering and technical education with low or nominal tuition fees.",
       popularIntakes: ["Winter (September/October)", "Summer (March/April)"],
-    },
-    {
-      id: "ireland",
-      name: "Ireland",
-      flag: "🇮🇪",
-      highlight: "English-speaking European economic hub offering 2-year stay-back for Master's graduates.",
-      popularIntakes: ["January", "September"],
     },
   ],
 } as const;

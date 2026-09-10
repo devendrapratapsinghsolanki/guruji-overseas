@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   GraduationCap,
   Briefcase,
@@ -16,8 +17,9 @@ const visaCategories = [
     id: "student-visa",
     icon: GraduationCap,
     title: "Student Visa Guidance",
-    badge: "Core Service",
-    desc: "Complete filing assistance for higher education study permits in Canada, UK, Australia, New Zealand, USA, Germany, and Ireland.",
+    badge: "Primary Service",
+    href: "/visa-services/student-visa",
+    desc: "Complete filing assistance for higher education study permits in Canada, UK, Australia, New Zealand, USA, and Germany.",
     focusAreas: [
       "Letter of Acceptance (LOA / CAS / I-20 / CoE) verification",
       "Financial documentation and proof of funds audit",
@@ -26,23 +28,11 @@ const visaCategories = [
     ],
   },
   {
-    id: "work-visa",
-    icon: Briefcase,
-    title: "Work Visa Guidance",
-    badge: "Post-Study & Skilled",
-    desc: "Procedural guidance on post-graduation stayback permits and employment-linked temporary work visa categories.",
-    focusAreas: [
-      "Post-Graduation Work Permit (PGWP) Canada",
-      "Graduate Route 2-Year Scheme (UK)",
-      "Temporary Graduate Visa Subclass 485 (Australia)",
-      "Jobseeker and work visa documentation advisory",
-    ],
-  },
-  {
     id: "visitor-visa",
     icon: Plane,
     title: "Visitor & Travel Visa",
     badge: "Family & Tourism",
+    href: "/visa-services/visitor-visa",
     desc: "Application assistance for parents attending university convocation ceremonies, family visits, and general tourism.",
     focusAreas: [
       "Sponsorship and invitation letter structuring",
@@ -56,12 +46,27 @@ const visaCategories = [
     icon: HeartHandshake,
     title: "Dependent / Spouse Visa",
     badge: "Family Reunification",
-    desc: "Support for spouses and children accompanying primary international students or work permit holders overseas.",
+    href: "/visa-services/dependent-visa",
+    desc: "Support for spouses and children accompanying primary international students overseas.",
     focusAreas: [
       "Genuine relationship proof and marriage documentation",
-      "Primary applicant visa and accommodation verification",
-      "Dependent work and study entitlement advisory",
+      "Primary applicant student visa and accommodation verification",
+      "Dependent living expense and financial maintenance proof",
       "Consular submission and interview readiness",
+    ],
+  },
+  {
+    id: "documentation-review",
+    icon: FileCheck,
+    title: "Document Scrutiny & Mock Interviews",
+    badge: "Quality Assurance",
+    href: "/visa-services",
+    desc: "Meticulous multi-tier verification of all academic certificates, bank statements, affidavits, and embassy interview drills.",
+    focusAreas: [
+      "Bank statement & source of funds verification",
+      "Gap justification and work experience affidavits",
+      "1-on-1 embassy mock interview simulation",
+      "Refusal case review and reapplication strategy",
     ],
   },
 ];
@@ -73,7 +78,7 @@ export function VisaServicesSection() {
         <SectionHeading
           kicker="Visa Assistance"
           title="Thorough Visa Guidance & Documentation"
-          subtitle="Navigating immigration regulations requires rigorous accuracy. We assist candidates with document scrutiny, financial alignment, and interview preparation conforming strictly to high commission guidelines."
+          subtitle="Navigating student and visitor visa regulations requires rigorous accuracy. We assist candidates with document scrutiny, financial alignment, and interview preparation conforming strictly to high commission guidelines."
         />
 
         {/* 4 Visa Categories Grid */}
@@ -122,13 +127,13 @@ export function VisaServicesSection() {
                   <span className="text-xs text-slate-500">
                     Process scrutiny &amp; review
                   </span>
-                  <a
-                    href="#inquiry"
+                  <Link
+                    href={visa.href}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-royal-700 hover:text-royal-800"
                   >
-                    <span>Consult Visa Advisor</span>
+                    <span>View Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             );
@@ -151,7 +156,7 @@ export function VisaServicesSection() {
               </p>
             </div>
           </div>
-          <Button variant="royal" size="md" href="#inquiry" className="shrink-0">
+          <Button variant="royal" size="md" href="/contact" className="shrink-0">
             Book File Review
           </Button>
         </div>

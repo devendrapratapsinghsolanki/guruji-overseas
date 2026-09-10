@@ -4,8 +4,7 @@ export type StudyDestination =
   | "australia"
   | "new-zealand"
   | "usa"
-  | "germany"
-  | "ireland";
+  | "germany";
 
 export interface DestinationItem {
   id: StudyDestination;

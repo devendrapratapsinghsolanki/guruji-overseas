@@ -50,38 +50,39 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
+                <Link href="/study-abroad/canada" className="hover:text-amber-400 transition-colors">
                   Study in Canada
                 </Link>
               </li>
               <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
+                <Link href="/study-abroad/uk" className="hover:text-amber-400 transition-colors">
                   Study in United Kingdom
                 </Link>
               </li>
               <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
+                <Link href="/study-abroad/australia" className="hover:text-amber-400 transition-colors">
                   Study in Australia
                 </Link>
               </li>
               <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
+                <Link href="/study-abroad/new-zealand" className="hover:text-amber-400 transition-colors">
                   Study in New Zealand
                 </Link>
               </li>
               <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
+                <Link href="/study-abroad/usa" className="hover:text-amber-400 transition-colors">
                   Study in United States
                 </Link>
               </li>
               <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
+                <Link href="/study-abroad/germany" className="hover:text-amber-400 transition-colors">
                   Study in Germany
                 </Link>
               </li>
-              <li>
-                <Link href="#destinations" className="hover:text-amber-400 transition-colors">
-                  Study in Ireland
+              <li className="pt-1">
+                <Link href="/study-abroad" className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1">
+                  <span>View All Destinations</span>
+                  <span>→</span>
                 </Link>
               </li>
             </ul>
@@ -94,33 +95,34 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="#test-prep" className="hover:text-amber-400 transition-colors">
+                <Link href="/test-preparation/ielts" className="hover:text-amber-400 transition-colors">
                   IELTS Academic Coaching
                 </Link>
               </li>
               <li>
-                <Link href="#test-prep" className="hover:text-amber-400 transition-colors">
+                <Link href="/test-preparation/ielts" className="hover:text-amber-400 transition-colors">
                   IELTS General Training
                 </Link>
               </li>
               <li>
-                <Link href="#test-prep" className="hover:text-amber-400 transition-colors">
-                  PTE Academic Lab
+                <Link href="/test-preparation/pte" className="hover:text-amber-400 transition-colors">
+                  PTE Academic Lab Coaching
                 </Link>
               </li>
               <li>
-                <Link href="#test-prep" className="hover:text-amber-400 transition-colors">
-                  Spoken English Classes
+                <Link href="/test-preparation" className="hover:text-amber-400 transition-colors">
+                  English Language &amp; Spoken Drills
                 </Link>
               </li>
               <li>
-                <Link href="#test-prep" className="hover:text-amber-400 transition-colors">
-                  Speaking Interview Drills
-                </Link>
-              </li>
-              <li>
-                <Link href="#test-prep" className="hover:text-amber-400 transition-colors">
+                <Link href="/test-preparation" className="hover:text-amber-400 transition-colors">
                   Full-Length Mock Tests
+                </Link>
+              </li>
+              <li className="pt-1">
+                <Link href="/test-preparation" className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1">
+                  <span>Compare IELTS vs PTE</span>
+                  <span>→</span>
                 </Link>
               </li>
             </ul>
@@ -133,38 +135,38 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="#about" className="hover:text-amber-400 transition-colors">
+                <Link href="/about" className="hover:text-amber-400 transition-colors">
                   About Our Office
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-amber-400 transition-colors">
-                  Visa Guidance
+                <Link href="/visa-services" className="hover:text-amber-400 transition-colors">
+                  Visa Guidance Services
                 </Link>
               </li>
               <li>
-                <Link href="#universities" className="hover:text-amber-400 transition-colors">
-                  University Discovery
+                <Link href="/universities" className="hover:text-amber-400 transition-colors">
+                  University Directory
                 </Link>
               </li>
               <li>
-                <Link href="#success-stories" className="hover:text-amber-400 transition-colors">
+                <Link href="/success-stories" className="hover:text-amber-400 transition-colors">
                   Success Stories (Justdial)
                 </Link>
               </li>
               <li>
-                <Link href="#gallery" className="hover:text-amber-400 transition-colors">
-                  Real Company Gallery
+                <Link href="/gallery" className="hover:text-amber-400 transition-colors">
+                  Office &amp; Lab Gallery
                 </Link>
               </li>
               <li>
-                <Link href="#blog" className="hover:text-amber-400 transition-colors">
+                <Link href="/blog" className="hover:text-amber-400 transition-colors">
                   Study Guides &amp; Blog
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-amber-400 transition-colors">
-                  Contact &amp; Map
+                <Link href="/contact" className="hover:text-amber-400 transition-colors">
+                  Contact &amp; Rohtak Map
                 </Link>
               </li>
             </ul>

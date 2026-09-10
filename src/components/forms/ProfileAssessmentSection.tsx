@@ -94,7 +94,6 @@ export function ProfileAssessmentSection() {
                     { value: "new-zealand", label: "New Zealand" },
                     { value: "usa", label: "United States" },
                     { value: "germany", label: "Germany" },
-                    { value: "ireland", label: "Ireland" },
                     { value: "undecided", label: "Need advice to choose" },
                   ]}
                 />

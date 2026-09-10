@@ -97,14 +97,14 @@ const sampleInstitutions: InstitutionItem[] = [
   },
   {
     id: "7",
-    name: "Trinity College Dublin",
-    country: "Ireland",
-    flag: "🇮🇪",
-    level: "1-Yr Master's & Bachelor's",
-    ranking: "Ireland #1 • European Tech Hub",
+    name: "RWTH Aachen University",
+    country: "Germany",
+    flag: "🇩🇪",
+    level: "English-Taught M.Sc.",
+    ranking: "TU9 • World Leading Engineering",
     image: "/images/foreign-students-campus.jpg",
-    popularFields: ["Digital Marketing", "Computer Science", "Pharma"],
-    intakes: ["September"],
+    popularFields: ["Mechanical Engineering", "Production", "Automotive"],
+    intakes: ["Winter"],
   },
   {
     id: "8",
@@ -142,7 +142,6 @@ export function UniversitiesSection() {
     "New Zealand",
     "United States",
     "Germany",
-    "Ireland",
   ];
 
   const filteredInstitutions = sampleInstitutions.filter((item) => {

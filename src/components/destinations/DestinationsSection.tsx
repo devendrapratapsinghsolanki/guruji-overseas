@@ -97,19 +97,6 @@ const destinations: DestinationCardData[] = [
     ctaText: "Explore Germany",
     image: "/images/global-university-campus.jpg",
   },
-  {
-    id: "ireland",
-    name: "Ireland",
-    flag: "🇮🇪",
-    tagline: "European Tech & Pharma Hub with 2-Year Stayback",
-    description:
-      "The English-speaking European headquarters for global tech and biotech giants, offering excellent post-study employment prospects in Dublin, Cork, and Galway.",
-    intakes: "Jan, Sep",
-    workRights: "2-Year Third Level Scheme",
-    size: "medium",
-    ctaText: "Explore Ireland",
-    image: "/images/foreign-students-campus.jpg",
-  },
 ];
 
 export function DestinationsSection() {
@@ -122,7 +109,7 @@ export function DestinationsSection() {
         <SectionHeading
           kicker="Study Destinations"
           title="Choose Your Study Abroad Destination"
-          subtitle="Explore the seven major international destinations we advise on from our Rohtak office, each offering distinct academic advantages, post-study work rights, and global career pathways."
+          subtitle="Explore the six major international destinations we advise on from our Rohtak office, each offering distinct academic advantages, post-study work rights, and global career pathways."
         />
 
         {/* Top Asymmetric Row: 2 Major Featured Countries (Canada & UK) */}
@@ -193,7 +180,7 @@ export function DestinationsSection() {
 
               <div className="p-6 sm:p-7 pt-0">
                 <Link
-                  href="#inquiry"
+                  href={`/study-abroad/${dest.id}`}
                   className="inline-flex items-center gap-2 text-sm font-bold text-royal-600 hover:text-royal-800 transition-colors group/link"
                 >
                   <span>{dest.ctaText}</span>
@@ -204,8 +191,8 @@ export function DestinationsSection() {
           ))}
         </div>
 
-        {/* Bottom Row: 5 Medium Destinations (Australia, NZ, USA, Germany, Ireland) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+        {/* Bottom Row: 4 Medium Destinations (Australia, NZ, USA, Germany) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {mediumDestinations.map((dest) => (
             <div
               key={dest.id}
@@ -219,7 +206,7 @@ export function DestinationsSection() {
                     alt={dest.name}
                     fill
                     className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent" />
                   <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
@@ -247,10 +234,10 @@ export function DestinationsSection() {
                     {dest.intakes.split(",")[0]}
                   </div>
                   <Link
-                    href="#inquiry"
+                    href={`/study-abroad/${dest.id}`}
                     className="inline-flex items-center gap-1 text-xs font-bold text-royal-600 hover:text-royal-800 transition-colors group/arrow"
                   >
-                    <span>Details</span>
+                    <span>View Guide</span>
                     <ArrowRight className="w-3.5 h-3.5 group-arrow:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>

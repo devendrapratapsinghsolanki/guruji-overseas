@@ -12,7 +12,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Guruji Overseas | Overseas Education & Visa Assistance | Rohtak, Haryana",
   description:
-    "GURUJI OVERSEAS IMMIGRATION PRIVATE LIMITED - Established in 2022. Expert IELTS & PTE coaching, study abroad counselling, and visa assistance for Canada, UK, Australia, New Zealand, USA, Germany, and Ireland in Rohtak, Haryana.",
+    "GURUJI OVERSEAS IMMIGRATION PRIVATE LIMITED - Established in 2022. Expert IELTS & PTE coaching, study abroad counselling, and visa assistance for Canada, UK, Australia, New Zealand, USA, and Germany in Rohtak, Haryana.",
   keywords: [
     "Guruji Overseas",
     "Guruji Overseas Immigration Private Limited",

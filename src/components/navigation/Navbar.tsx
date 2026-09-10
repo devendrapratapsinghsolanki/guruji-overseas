@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   Phone,
   MapPin,
-  Clock,
   Menu,
   X,
   ChevronDown,
@@ -18,6 +17,11 @@ import {
   Award,
   Sparkles,
   ExternalLink,
+  MessageCircle,
+  HelpCircle,
+  CalendarCheck,
+  FileQuestion,
+  Compass,
 } from "lucide-react";
 
 import { COMPANY_INFO } from "@/data/company";
@@ -37,63 +41,58 @@ const studyAbroadDestinations: DropdownItem[] = [
   {
     title: "Study in Canada",
     description: "PGWP work rights, colleges & universities",
-    href: "#destinations",
+    href: "/study-abroad/canada",
     flag: "🇨🇦",
   },
   {
     title: "Study in United Kingdom",
     description: "1-year Master's & 2-year Graduate Route",
-    href: "#destinations",
+    href: "/study-abroad/uk",
     flag: "🇬🇧",
   },
   {
     title: "Study in Australia",
     description: "Group of Eight, top regional opportunities",
-    href: "#destinations",
+    href: "/study-abroad/australia",
     flag: "🇦🇺",
   },
   {
     title: "Study in New Zealand",
     description: "High quality of life & practical learning",
-    href: "#destinations",
+    href: "/study-abroad/new-zealand",
     flag: "🇳🇿",
   },
   {
     title: "Study in United States",
     description: "Extensive STEM OPT & research programs",
-    href: "#destinations",
+    href: "/study-abroad/usa",
     flag: "🇺🇸",
   },
   {
     title: "Study in Germany",
     description: "Low / zero tuition public universities",
-    href: "#destinations",
+    href: "/study-abroad/germany",
     flag: "🇩🇪",
-  },
-  {
-    title: "Study in Ireland",
-    description: "European tech hub with 2-year stayback",
-    href: "#destinations",
-    flag: "🇮🇪",
   },
 ];
 
 const testPrepItems: DropdownItem[] = [
   {
-    title: "IELTS Preparation",
+    title: "IELTS Coaching",
     description: "Academic & General Training with daily speaking drills",
-    href: "#test-prep",
-    badge: "Most Popular",
+    href: "/test-preparation/ielts",
+    badge: "Top Rated",
   },
   {
     title: "PTE Academic Coaching",
     description: "Computer lab practice & software-guided mock tests",
-    href: "#test-prep",
+    href: "/test-preparation/pte",
+    badge: "Fast Results",
   },
   {
-    title: "English Language / Spoken English",
-    description: "Grammar, fluency, and visa interview readiness",
-    href: "#test-prep",
+    title: "All Test Prep Programs",
+    description: "Compare IELTS vs PTE, view batch timings & fees",
+    href: "/test-preparation",
   },
 ];
 
@@ -101,22 +100,22 @@ const visaServiceItems: DropdownItem[] = [
   {
     title: "Student Visa Assistance",
     description: "Complete filing, document scrutiny & mock interview drills",
-    href: "#services",
+    href: "/visa-services/student-visa",
   },
   {
-    title: "Work Visa Guidance",
-    description: "Post-study work permits & employment-linked visa support",
-    href: "#services",
-  },
-  {
-    title: "Visitor / Travel Visa",
-    description: "Tourist and family visit visas for parents and travelers",
-    href: "#services",
+    title: "Visitor & Travel Visa",
+    description: "Tourist, convocation ceremony & family visit applications",
+    href: "/visa-services/visitor-visa",
   },
   {
     title: "Dependent / Spouse Visa",
     description: "Filing assistance for accompanying spouses & families",
-    href: "#services",
+    href: "/visa-services/dependent-visa",
+  },
+  {
+    title: "All Visa Services & Policy",
+    description: "Scrutiny process, embassy mock drills & ethical guidelines",
+    href: "/visa-services",
   },
 ];
 
@@ -124,6 +123,10 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const whatsappUrl = `https://wa.me/${COMPANY_INFO.contact.whatsappNumber}?text=${encodeURIComponent(
+    "Hello Guruji Overseas, I would like to inquire about study abroad counselling, IELTS/PTE coaching, and visa services."
+  )}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -174,7 +177,7 @@ export function Navbar() {
           <div className="flex items-center gap-4 shrink-0">
             <div className="hidden sm:flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              <span>Opp. D-Park</span>
+              <span>Opp. D-Park, Model Town</span>
             </div>
             <a
               href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
@@ -187,7 +190,7 @@ export function Navbar() {
         </Container>
       </div>
 
-      {/* Main Sticky Navbar - Compact, sleek height */}
+      {/* Main Sticky Navbar */}
       <nav
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-200 bg-white",
@@ -196,20 +199,20 @@ export function Navbar() {
             : "bg-white border-b border-slate-200 py-2 sm:py-2.5"
         )}
       >
-        <Container className="flex items-center justify-between gap-4">
-          {/* Logo with widened display */}
+        <Container className="flex items-center justify-between gap-3">
+          {/* Logo */}
           <Logo isScrolled={isScrolled} />
 
-          {/* Clean Streamlined Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1.5 text-sm font-medium text-charcoal-700 whitespace-nowrap">
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-1 text-sm font-medium text-charcoal-700 whitespace-nowrap">
             {/* 1. Study Abroad Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setActiveDropdown("study-abroad")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button
-                type="button"
+              <Link
+                href="/study-abroad"
                 className={cn(
                   "px-3 py-2 rounded-md transition-colors flex items-center gap-1 text-charcoal-700 hover:text-navy-900 hover:bg-slate-50 cursor-pointer",
                   activeDropdown === "study-abroad" && "text-navy-900 bg-slate-50"
@@ -217,13 +220,16 @@ export function Navbar() {
               >
                 <span>Study Abroad</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" />
-              </button>
+              </Link>
 
               {activeDropdown === "study-abroad" && (
                 <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
                   <div className="bg-white rounded-lg shadow-dropdown border border-slate-200 p-2 text-left">
-                    <div className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1">
-                      Primary Destinations
+                    <div className="flex items-center justify-between px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1">
+                      <span>Primary Destinations</span>
+                      <Link href="/study-abroad" className="text-royal-600 hover:underline normal-case font-medium">
+                        View All
+                      </Link>
                     </div>
                     {studyAbroadDestinations.map((dest, idx) => (
                       <Link
@@ -254,16 +260,16 @@ export function Navbar() {
               onMouseEnter={() => setActiveDropdown("test-prep")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button
-                type="button"
+              <Link
+                href="/test-preparation"
                 className={cn(
                   "px-3 py-2 rounded-md transition-colors flex items-center gap-1 text-charcoal-700 hover:text-navy-900 hover:bg-slate-50 cursor-pointer",
                   activeDropdown === "test-prep" && "text-navy-900 bg-slate-50"
                 )}
               >
-                <span>Test Preparation</span>
+                <span>Test Prep</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
+              </Link>
 
               {activeDropdown === "test-prep" && (
                 <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
@@ -304,8 +310,8 @@ export function Navbar() {
               onMouseEnter={() => setActiveDropdown("visa-services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button
-                type="button"
+              <Link
+                href="/visa-services"
                 className={cn(
                   "px-3 py-2 rounded-md transition-colors flex items-center gap-1 text-charcoal-700 hover:text-navy-900 hover:bg-slate-50 cursor-pointer",
                   activeDropdown === "visa-services" && "text-navy-900 bg-slate-50"
@@ -313,7 +319,7 @@ export function Navbar() {
               >
                 <span>Visa Services</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
+              </Link>
 
               {activeDropdown === "visa-services" && (
                 <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
@@ -341,32 +347,89 @@ export function Navbar() {
               )}
             </div>
 
-            {/* 4. About Us */}
+            {/* 4. Universities */}
             <Link
-              href="#about"
+              href="/universities"
               className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors cursor-pointer"
             >
-              About Us
+              Universities
             </Link>
 
-            {/* 5. Contact */}
+            {/* 5. Success Stories */}
             <Link
-              href="#contact"
+              href="/success-stories"
+              className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors cursor-pointer"
+            >
+              Success Stories
+            </Link>
+
+            {/* 6. About Us */}
+            <Link
+              href="/about"
+              className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors cursor-pointer"
+            >
+              About
+            </Link>
+
+            {/* 7. Blog */}
+            <Link
+              href="/blog"
+              className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors cursor-pointer"
+            >
+              Blog
+            </Link>
+
+            {/* 8. Contact */}
+            <Link
+              href="/contact"
               className="px-3 py-2 rounded-md hover:text-navy-900 hover:bg-slate-50 transition-colors cursor-pointer"
             >
               Contact
             </Link>
           </div>
 
-          {/* Right Action Button & Mobile Toggle */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Right Action Buttons & Mobile Icons */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Mobile Header Quick Actions: WhatsApp & Inquiry Icons */}
+            <div className="flex lg:hidden items-center gap-1.5">
+              {/* WhatsApp Redirect Button */}
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm transition-all active:scale-95 cursor-pointer"
+                aria-label="Chat with Guruji Overseas on WhatsApp"
+                title="Chat on WhatsApp"
+              >
+                {/* SVG WhatsApp Icon */}
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.952 3.71 1.453 5.711 1.454h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+
+              {/* Inquiry Icon Button */}
+              <Link
+                href="/contact"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-royal-50 text-royal-700 border border-royal-200 hover:bg-royal-100 transition-all active:scale-95 cursor-pointer"
+                aria-label="Enquiry & Consultation"
+                title="Send Enquiry"
+              >
+                <CalendarCheck className="w-5 h-5 text-royal-700" />
+              </Link>
+            </div>
+
+            {/* Desktop CTA Button */}
             <div className="hidden sm:flex items-center">
               <Button
                 variant="royal"
                 size="md"
-                href="#inquiry"
+                href="/contact"
                 rightIcon={<ArrowRight className="w-4 h-4" />}
-                className="cursor-pointer text-sm px-5 py-2.5 font-semibold rounded-lg shadow-card hover:shadow-card-hover"
+                className="cursor-pointer text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 font-semibold rounded-lg shadow-card hover:shadow-card-hover"
               >
                 Book Free Counselling
               </Button>
@@ -376,7 +439,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-charcoal-700 hover:bg-slate-100 hover:text-navy-900 transition-colors focus:outline-none cursor-pointer"
+              className="lg:hidden p-2 rounded-md text-charcoal-700 hover:bg-slate-100 hover:text-navy-900 transition-colors focus:outline-none cursor-pointer ml-1"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
@@ -390,117 +453,174 @@ export function Navbar() {
 
         {/* Mobile Slide-down Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[120px] bottom-0 bg-white z-50 overflow-y-auto border-t border-slate-200 animate-in slide-in-from-top-2 duration-200">
-            <div className="p-5 space-y-6 pb-24 text-left">
-              {/* Quick Call Header in Drawer */}
-              <div className="p-3.5 rounded-lg bg-navy-50 border border-navy-100 flex items-center justify-between">
-                <div>
-                  <div className="text-[11px] font-bold text-navy-900 uppercase tracking-wider">
-                    Direct Rohtak Helpline
-                  </div>
-                  <div className="text-sm font-bold text-royal-700">
-                    {COMPANY_INFO.contact.displayPhone}
-                  </div>
-                </div>
+          <div className="lg:hidden fixed inset-x-0 top-[115px] bottom-0 bg-white z-50 overflow-y-auto border-t border-slate-200 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-4 sm:p-5 space-y-5 pb-28 text-left">
+              {/* Quick Action Banner in Drawer: Direct WhatsApp & Call */}
+              <div className="grid grid-cols-2 gap-2.5">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center gap-2 shadow-sm font-semibold text-xs"
+                >
+                  <svg
+                    className="w-4 h-4 fill-current shrink-0"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.952 3.71 1.453 5.711 1.454h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  <span>WhatsApp</span>
+                </a>
                 <a
                   href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
-                  className="px-3 py-1.5 rounded bg-royal-600 text-white text-xs font-semibold"
+                  className="p-3 rounded-xl bg-navy-900 hover:bg-navy-950 text-white flex items-center justify-center gap-2 shadow-sm font-semibold text-xs"
                 >
-                  Call Now
+                  <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Call Advisor</span>
                 </a>
               </div>
 
-              {/* Mobile Nav Links */}
+              {/* Clean Mobile Nav Links */}
               <div className="space-y-1">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider px-2 py-1">
-                  Main Navigation
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 py-1">
+                  Main Pages
                 </div>
 
                 <Link
-                  href="#destinations"
+                  href="/study-abroad"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">Study Abroad (7 Countries)</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <Compass className="w-4 h-4 text-royal-600" />
+                    <span>Study Abroad</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
 
                 <Link
-                  href="#test-prep"
+                  href="/test-preparation"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">Test Preparation (IELTS / PTE)</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-royal-600" />
+                    <span>Test Preparation (IELTS / PTE)</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
 
                 <Link
-                  href="#services"
+                  href="/visa-services"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">Visa Services</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <Plane className="w-4 h-4 text-royal-600" />
+                    <span>Visa Guidance Services</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
 
                 <Link
-                  href="#destinations"
+                  href="/universities"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">Universities</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <Building2 className="w-4 h-4 text-royal-600" />
+                    <span>Universities &amp; Colleges</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
 
                 <Link
-                  href="#about"
+                  href="/about"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">About Us</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-royal-600" />
+                    <span>About Guruji Overseas</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
 
                 <Link
-                  href="#success-stories"
+                  href="/success-stories"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">Success Stories</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <Award className="w-4 h-4 text-amber-500" />
+                    <span>Success Stories &amp; Reviews</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
 
                 <Link
-                  href="#blog"
+                  href="/gallery"
                   onClick={closeAllMenus}
-                  className="flex items-center justify-between p-2.5 rounded-md text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
                 >
-                  <span className="cursor-pointer">Blog & Updates</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 cursor-pointer" />
+                  <span className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-royal-600" />
+                    <span>Photo Gallery</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
+                </Link>
+
+                <Link
+                  href="/blog"
+                  onClick={closeAllMenus}
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-royal-600" />
+                    <span>Blog &amp; Study Guides</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
+                </Link>
+
+                <Link
+                  href="/contact"
+                  onClick={closeAllMenus}
+                  className="flex items-center justify-between p-2.5 rounded-lg text-sm font-semibold text-charcoal-800 hover:bg-slate-50 cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-royal-600" />
+                    <span>Contact &amp; Rohtak Office</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-slate-400" />
                 </Link>
               </div>
 
-              {/* Mobile CTA */}
+              {/* Mobile Main CTA Button */}
               <div className="pt-2">
                 <Button
                   variant="royal"
                   size="lg"
-                  href="#inquiry"
+                  href="/contact"
                   onClick={closeAllMenus}
-                  className="w-full cursor-pointer font-semibold shadow-md"
+                  className="w-full cursor-pointer font-semibold shadow-md py-3"
+                  rightIcon={<CalendarCheck className="w-4 h-4" />}
                 >
-                  Book Free Counselling
+                  Book Free In-Person Counselling
                 </Button>
               </div>
 
-              {/* Office Location info */}
-              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-charcoal-600 space-y-1.5">
+              {/* Office Location info in Drawer */}
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-charcoal-600 space-y-1.5">
                 <div className="font-semibold text-navy-900">
                   {COMPANY_INFO.legalName}
                 </div>
                 <div>{COMPANY_INFO.location.addressLine1}</div>
                 <div>{COMPANY_INFO.location.addressLine2}</div>
                 <div>{COMPANY_INFO.location.cityStateZip}</div>
+                <div className="text-[11px] text-slate-500 pt-1">
+                  Hours: {COMPANY_INFO.contact.officeHours}
+                </div>
               </div>
             </div>
           </div>

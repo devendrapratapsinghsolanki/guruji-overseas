@@ -26,12 +26,12 @@ const corePillars = [
   {
     icon: GraduationCap,
     label: "Study Abroad Admissions",
-    desc: "Direct guidance for 7 major destinations",
+    desc: "Direct guidance for 6 major destinations",
   },
   {
     icon: Plane,
     label: "Visa Guidance & Filing",
-    desc: "Student, visitor, work & spouse visas",
+    desc: "Student, visitor & spouse visas",
   },
 ];
 
@@ -42,7 +42,6 @@ const featuredDestinations = [
   { name: "New Zealand", flag: "🇳🇿" },
   { name: "USA", flag: "🇺🇸" },
   { name: "Germany", flag: "🇩🇪" },
-  { name: "Ireland", flag: "🇮🇪" },
 ];
 
 export function Hero() {
