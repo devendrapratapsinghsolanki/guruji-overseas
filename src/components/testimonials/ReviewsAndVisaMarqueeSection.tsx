@@ -229,6 +229,35 @@ const VISA_SUCCESS_STUDENTS: VisaSuccessStudent[] = [
 ];
 
 export function ReviewsAndVisaMarqueeSection() {
+  const [visaResults, setVisaResults] = useState<VisaSuccessStudent[]>(VISA_SUCCESS_STUDENTS);
+
+  React.useEffect(() => {
+    try {
+      const customResults = localStorage.getItem("guruji_admin_results");
+      if (customResults) {
+        const parsed = JSON.parse(customResults);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const formatted: VisaSuccessStudent[] = parsed.map((item: any, i: number) => ({
+            id: item.id || `custom-${i}`,
+            name: item.name,
+            hometown: item.hometown || "Haryana, HR",
+            country: item.country || "Canada",
+            countryFlag: item.countryFlag || "🇨🇦",
+            visaType: item.visaType || `${item.country} Student Visa`,
+            institution: item.institution,
+            course: item.course,
+            intake: item.intake || "Upcoming Intake",
+            statusBadge: item.statusBadge || "Visa Approved",
+            avatarColor: "bg-royal-600",
+          }));
+          setVisaResults(formatted);
+        }
+      }
+    } catch {
+      // Fallback to defaults
+    }
+  }, []);
+
   return (
     <section
       id="success-stories"
@@ -241,7 +270,7 @@ export function ReviewsAndVisaMarqueeSection() {
       <Container>
         <SectionHeading
           kicker="Proven Track Record"
-          title="Student Reviews &amp; Verified Visa Success"
+          title="Student Reviews & Verified Visa Success"
           subtitle="Real experiences from students across Rohtak and Haryana who scored top IELTS/PTE bands and successfully received their overseas student visas."
         />
 
@@ -284,7 +313,7 @@ export function ReviewsAndVisaMarqueeSection() {
         <div className="container mx-auto px-4 mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-royal-700">
             <Sparkles className="w-4 h-4 text-amber-500" />
-            <span>Student Experiences &amp; Coaching Testimonials (Hover to Pause)</span>
+            <span>Student Experiences & Coaching Testimonials (Hover to Pause)</span>
           </div>
           <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
             ← Scrolling Left to Right →
@@ -347,7 +376,7 @@ export function ReviewsAndVisaMarqueeSection() {
         <div className="container mx-auto px-4 mb-3 flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-navy-950">
             <Plane className="w-4 h-4 text-royal-600" />
-            <span>Abroad Student Visa Approvals &amp; College Grants (Hover to Pause)</span>
+            <span>Abroad Student Visa Approvals & College Grants (Hover to Pause)</span>
           </div>
           <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
             → Scrolling Right to Left ←
@@ -357,7 +386,7 @@ export function ReviewsAndVisaMarqueeSection() {
         <div className="relative w-full overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]">
           <div className="animate-marquee-reverse flex gap-5">
             {/* Duplicated list for seamless infinite loop */}
-            {[...VISA_SUCCESS_STUDENTS, ...VISA_SUCCESS_STUDENTS].map((visa, idx) => (
+            {[...visaResults, ...visaResults].map((visa, idx) => (
               <div
                 key={`${visa.id}-${idx}`}
                 className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl bg-navy-950 text-white border border-navy-800 p-5 shadow-card hover:border-amber-400/60 transition-all flex flex-col justify-between"

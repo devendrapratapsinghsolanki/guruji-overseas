@@ -1,186 +1,156 @@
 import React from "react";
 import {
-  UserCheck,
-  BookOpenCheck,
+  CheckCircle2,
+  XCircle,
+  ShieldCheck,
+  Award,
+  BookOpen,
   Compass,
   FileCheck2,
-  ShieldCheck,
-  HeartHandshake,
-  CheckCircle2,
+  Users,
 } from "lucide-react";
-import { Container, SectionHeading, Badge } from "@/components/ui";
+import { Container } from "@/components/ui";
 
-const principles = [
+const standardsComparison = [
   {
-    id: "personal",
+    parameter: "University & Course Selection",
+    guruji: "Selected purely on your academic background, career trajectory, and genuine post-study work rights.",
+    agents: "Pushed to partner colleges offering the highest agent commission regardless of student fit.",
+  },
+  {
+    parameter: "Statement of Purpose (SOP)",
+    guruji: "Custom-drafted with the student highlighting genuine academic intent and clear ties to home country.",
+    agents: "Copied, generic AI templates leading to high refusal rates under immigration scrutiny.",
+  },
+  {
+    parameter: "Financial & Fund Transparency",
+    guruji: "Clear audit of legitimate family savings, education loans, and verified banking documentation.",
+    agents: "Encouraging high-risk informal fund arrangements resulting in 5-year visa bans.",
+  },
+  {
+    parameter: "IELTS & PTE Test Coaching",
+    guruji: "Daily in-person speaking drills, computer lab testing, and structured diagnostic score feedback.",
+    agents: "Outsourced coaching with no diagnostic tracking or computer lab facilities.",
+  },
+];
+
+const pillars = [
+  {
     num: "01",
-    icon: UserCheck,
-    title: "Personalised Guidance",
-    summary:
-      "No mass counseling or generic advice. We sit down with each candidate and their family to understand academic history, financial planning, and long-term career intent.",
-    details: [
-      "In-depth academic profile evaluation",
-      "Realistic discussion on budget and living costs",
-      "Direct 1-on-1 advisor accessibility",
-    ],
-    highlight: "Individualized roadmaps tailored to your genuine potential.",
-    featured: true,
+    title: "1-on-1 Personalized Roadmaps",
+    desc: "We analyze your 10th, 12th, graduation marks, study gaps, and budget before recommending a single program.",
   },
   {
-    id: "exam",
     num: "02",
-    icon: BookOpenCheck,
-    title: "Exam Preparation",
-    summary:
-      "In-house classroom coaching for IELTS & PTE with computer practice labs and continuous mock evaluations so students achieve required test cut-offs without guesswork.",
-    details: ["Daily speaking practice", "Diagnostic score tracking"],
-    featured: false,
+    title: "Meticulous High Commission File Prep",
+    desc: "Every visa file undergoes a multi-layer audit conforming to latest IRCC, UKVI, and Department of Home Affairs rules.",
   },
   {
-    id: "course-uni",
     num: "03",
-    icon: Compass,
-    title: "Course & University Guidance",
-    summary:
-      "Objective shortlisting based on genuine university recognition, post-study work regulations, and employability rather than arbitrary promotional lists.",
-    details: ["Accredited colleges & universities", "Intake deadline tracking"],
-    featured: false,
+    title: "Dedicated Rohtak Classroom & Lab",
+    desc: "Walk in daily for interactive language practice, computer mock tests, and face-to-face progress reviews.",
   },
   {
-    id: "application",
     num: "04",
-    icon: FileCheck2,
-    title: "Application Support",
-    summary:
-      "Systematic submission management ensuring academic transcripts, application fee submissions, and university follow-ups are completed punctually.",
-    details: ["Error-free submission reviews", "Direct institution communication"],
-    featured: false,
-  },
-  {
-    id: "documentation",
-    num: "05",
-    icon: ShieldCheck,
-    title: "Documentation Assistance",
-    summary:
-      "Meticulous verification of statements of purpose (SOP), letters of recommendation, affidavits, and financial justification proofs.",
-    details: ["Strict compliance standards", "Proofreading & integrity checks"],
-    featured: false,
-  },
-  {
-    id: "visa",
-    num: "06",
-    icon: HeartHandshake,
-    title: "Visa Guidance",
-    summary:
-      "Step-by-step guidance conforming to current high commission rules. Mock interview drills prepare students for visa officer questions with calm confidence.",
-    details: [
-      "Detailed file audits prior to submission",
-      "Embassy interview preparation sessions",
-      "Biometric and medical appointment assistance",
-    ],
-    highlight: "Thorough procedural rigor without making false promises or guarantees.",
-    featured: true,
+    title: "Full Post-Visa Onboarding",
+    desc: "Assistance with accommodation booking, student forex cards, air tickets, and departure checklists.",
   },
 ];
 
 export function WhyUsSection() {
-  const featuredPrinciples = principles.filter((p) => p.featured);
-  const standardPrinciples = principles.filter((p) => !p.featured);
-
   return (
-    <section className="py-20 lg:py-28 bg-surface-gray/60 border-b border-border-subtle">
+    <section className="py-20 lg:py-28 bg-[#FBFBF9] border-b border-slate-200">
       <Container>
-        <SectionHeading
-          kicker="Our Core Approach"
-          title="Why Students & Parents Trust Guruji Overseas"
-          subtitle="Our six foundational pillars reflect an uncompromising commitment to thoroughness, ethical advisory, and practical support from Rohtak."
-        />
-
-        {/* Asymmetric Layout:
-            Row 1: Two Featured Comprehensive Pillars (Personalised Guidance & Visa Guidance)
-            Row 2: Four Precision Pillars (Exam, University, Application, Documentation)
-        */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
-          {featuredPrinciples.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.id}
-                className="lg:col-span-6 rounded-xl border border-border-subtle bg-white p-7 lg:p-8 flex flex-col justify-between shadow-subtle hover:border-slate-300 hover:shadow-card transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-royal-600 bg-royal-50 px-2.5 py-1 rounded">
-                      Principle {item.num}
-                    </span>
-                    <div className="w-10 h-10 rounded-lg bg-navy-50 text-navy-900 flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-navy-950 mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-charcoal-600 leading-relaxed mb-6">
-                    {item.summary}
-                  </p>
-
-                  <div className="space-y-2 mb-6">
-                    {item.details.map((point, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs text-charcoal-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-royal-600 shrink-0" />
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-lg bg-surface-gray border border-border-subtle text-xs text-navy-900 font-medium">
-                  {item.highlight}
-                </div>
-              </div>
-            );
-          })}
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-700 mb-2">
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+            <span>Ethical Advisory Standard</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-[1.12]">
+            Why Guruji Overseas Sets the Benchmark in Rohtak
+          </h2>
+          <p className="text-base text-slate-600 mt-3 leading-relaxed">
+            In an industry crowded with superficial promises, we operate on procedural rigor, absolute fee transparency, and relentless student advocacy.
+          </p>
         </div>
 
-        {/* Row 2: 4 Supporting Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {standardPrinciples.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.id}
-                className="rounded-lg border border-border-subtle bg-white p-6 flex flex-col justify-between hover:border-slate-300 hover:shadow-card transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-mono font-bold text-slate-400">
-                      {item.num}
-                    </span>
-                    <div className="w-8 h-8 rounded bg-surface-gray text-navy-900 flex items-center justify-center">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                  </div>
+        {/* 4 Pillars Horizontal Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {pillars.map((p, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-2xl font-black text-amber-600 font-mono block mb-3">
+                  {p.num}
+                </span>
+                <h3 className="text-base font-bold text-slate-950 mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {p.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-                  <h4 className="text-base font-bold text-navy-950 mb-2">
-                    {item.title}
+        {/* Standards Comparison Ledger Table */}
+        <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <div className="p-6 bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
+                Ethical Audit
+              </span>
+              <h3 className="text-lg font-bold text-white">
+                How We Protect Your Study Abroad Investment
+              </h3>
+            </div>
+            <span className="text-xs text-slate-400">
+              Verified Rohtak Advisory Protocols
+            </span>
+          </div>
+
+          <div className="divide-y divide-slate-100">
+            {standardsComparison.map((row, idx) => (
+              <div
+                key={idx}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-4 p-6 hover:bg-slate-50/60 transition-colors items-center"
+              >
+                <div className="lg:col-span-4">
+                  <h4 className="text-sm font-bold text-slate-950">
+                    {row.parameter}
                   </h4>
-                  <p className="text-xs text-charcoal-600 leading-relaxed mb-4">
-                    {item.summary}
-                  </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 space-y-1">
-                  {item.details.map((d, i) => (
-                    <div key={i} className="text-[11px] text-slate-500 flex items-center gap-1.5">
-                      <span className="w-1 h-1 rounded-full bg-royal-600 shrink-0" />
-                      <span>{d}</span>
-                    </div>
-                  ))}
+                <div className="lg:col-span-4 flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 block">
+                      The Guruji Overseas Way
+                    </span>
+                    <p className="text-xs text-slate-700 leading-relaxed mt-0.5">
+                      {row.guruji}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-4 flex items-start gap-2.5">
+                  <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-red-600 block">
+                      Common Agent Pitfalls
+                    </span>
+                    <p className="text-xs text-slate-500 leading-relaxed mt-0.5">
+                      {row.agents}
+                    </p>
+                  </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </Container>
     </section>

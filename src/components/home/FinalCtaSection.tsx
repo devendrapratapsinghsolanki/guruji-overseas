@@ -1,95 +1,90 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, Phone, MessageSquare, MapPin, Sparkles, GraduationCap } from "lucide-react";
-import { Container, Button, Badge } from "@/components/ui";
+import Link from "next/link";
+import { ArrowRight, Phone, MapPin, Sparkles, ShieldCheck } from "lucide-react";
+import { Container, Button } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
 export function FinalCtaSection() {
   return (
-    <section className="py-20 lg:py-28 bg-navy-900 text-white relative overflow-hidden border-b border-navy-800">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-royal-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
+    <section className="py-20 lg:py-28 bg-[#0B132B] text-white relative overflow-hidden border-b border-slate-800">
       <Container>
-        <div className="rounded-3xl bg-navy-950 border border-navy-800 p-8 sm:p-12 lg:p-16 relative z-10 shadow-card overflow-hidden">
+        <div className="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-12 lg:p-16 relative z-10 shadow-2xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
             {/* Left Content */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <Badge variant="amber" size="sm" className="mb-4">
-                Begin Your Global Journey
-              </Badge>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-bold uppercase tracking-widest mb-4">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Begin Your Global Education</span>
+              </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-5 text-white">
-                Your International Dream Starts With Honest Direction.
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] mb-5 text-white">
+                Take the First Step with Genuine, Honest Counsel.
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-xl">
-                Visit our Rohtak center or schedule a personalized consultation today. We evaluate your academic background, provide dedicated IELTS &amp; PTE training, and manage foreign university applications with complete transparency.
+              <p className="text-base text-slate-300 leading-relaxed mb-8 max-w-xl">
+                Visit our official Rohtak branch or speak with an experienced admissions advisor. 
+                Get your academic profile evaluated, choose the right course, and start your visa filing with total confidence.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8 w-full sm:w-auto">
                 <Button
                   variant="royal"
                   size="lg"
-                  href="#inquiry"
+                  href="/contact"
                   rightIcon={<ArrowRight className="w-4 h-4" />}
-                  className="w-full sm:w-auto shadow-card"
+                  className="font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 border-none shadow-lg shadow-amber-500/10"
                 >
-                  Book Free In-Person Counselling
+                  Book Free In-Person Consultation
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
                   leftIcon={<Phone className="w-4 h-4" />}
-                  className="w-full sm:w-auto text-white border-slate-700 hover:border-white hover:bg-white/10"
+                  className="text-slate-200 border-slate-700 hover:border-slate-500 hover:bg-white/5"
                 >
-                  Call Rohtak Office
+                  Call Rohtak Desk
                 </Button>
               </div>
 
-              <div className="flex items-center gap-3 text-xs text-slate-400">
+              <div className="flex items-center gap-2 text-xs text-slate-400">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>
-                  Center: {COMPANY_INFO.location.addressLine1}, {COMPANY_INFO.location.landmark}, {COMPANY_INFO.location.city}
+                  Office: Sheetal Lifestyle Mall, Opposite D-Park, Model Town, Rohtak
                 </span>
               </div>
             </div>
 
-            {/* Right Image Composition */}
+            {/* Right Photo Composition */}
             <div className="lg:col-span-5 relative">
-              {/* Floating Top Badge */}
-              <div className="hidden sm:flex absolute -top-4 -right-4 z-20 animate-float items-center gap-2 px-3.5 py-1.5 rounded-xl glass-navy border border-white/20 shadow-card">
-                <GraduationCap className="w-4 h-4 text-amber-400" />
-                <span className="text-xs font-bold text-white">Global University Grads</span>
-              </div>
-
-              <div className="group rounded-2xl overflow-hidden border border-navy-800 bg-navy-900 p-2.5 shadow-card hover:border-slate-600 transition-all duration-300">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-navy-950">
+              <div className="rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-800 p-2.5 shadow-xl">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-900">
                   <Image
                     src="/images/international-graduates.jpg"
                     alt="International graduates celebrating at university convocation"
                     fill
-                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
-                    <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">
-                      Study • Graduate • Settle
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
+                    <span className="text-[10px] font-extrabold uppercase text-amber-300">
+                      Canada • UK • Australia • USA • Germany • NZ
                     </span>
-                    <span className="text-sm font-bold">
-                      Your Success Is Our Mission
+                    <span className="text-sm font-bold text-white">
+                      100% Impartial Admissions Advisory
                     </span>
                   </div>
                 </div>
 
                 <div className="p-3 text-xs text-slate-300 flex items-center justify-between">
                   <span>Opposite D-Park, Rohtak</span>
-                  <span className="text-amber-400 font-semibold">Established {COMPANY_INFO.establishedYear}</span>
+                  <span className="text-amber-400 font-semibold">Government Registered</span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </Container>

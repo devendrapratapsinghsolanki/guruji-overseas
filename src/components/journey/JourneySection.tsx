@@ -8,132 +8,115 @@ import {
   ShieldCheck,
   PlaneTakeoff,
   ArrowRight,
+  Sparkles,
 } from "lucide-react";
-import { Container, SectionHeading } from "@/components/ui";
+import { Container } from "@/components/ui";
 
 const journeySteps = [
   {
     step: "01",
+    phase: "Evaluation",
     title: "Profile Assessment",
-    desc: "Detailed evaluation of academic scores, gaps, and financial parameters.",
-    icon: UserCheck,
+    desc: "Detailed audit of your academics, English proficiency, study gaps, and financial parameters.",
+    deliverable: "Personalized Eligibility Report",
   },
   {
     step: "02",
-    title: "Course & Country Selection",
-    desc: "Aligning your interests with countries that offer suitable post-study pathways.",
-    icon: Compass,
+    phase: "Strategy",
+    title: "Country & Course Selection",
+    desc: "Matching your career goals with countries offering favorable post-study work and PR avenues.",
+    deliverable: "Curated Course Roadmap",
   },
   {
     step: "03",
+    phase: "Admissions",
     title: "University Shortlisting",
-    desc: "Selecting recognized institutions that match your credentials and budget.",
-    icon: Building2,
+    desc: "Selecting recognized institutions with optimal tuition, high visa acceptance, and timely intakes.",
+    deliverable: "Official Admission Submissions",
   },
   {
     step: "04",
-    title: "Application Submission",
-    desc: "Preparing error-free admission dossiers and statement of purpose reviews.",
-    icon: FileCheck2,
+    phase: "Documentation",
+    title: "SOP & File Structuring",
+    desc: "Drafting rigorous Statement of Purpose (SOP), recommendation letters, and financial affidavits.",
+    deliverable: "Audited Application Dossier",
   },
   {
     step: "05",
-    title: "Offer & Documentation",
-    desc: "Securing offer letters, deposit management, and financial verification.",
-    icon: Award,
+    phase: "Acceptance",
+    title: "Offer Letter & Fee Payment",
+    desc: "Receiving conditional/unconditional offers, CAS, I-20, or LOA and processing international tuition transfers.",
+    deliverable: "Confirmed University Acceptance",
   },
   {
     step: "06",
-    title: "Visa Assistance",
-    desc: "Meticulous visa file structuring, fee payment, and interview preparation.",
-    icon: ShieldCheck,
+    phase: "Visa Filing",
+    title: "Embassy Visa Lodgement",
+    desc: "Final visa file compilation, biometric scheduling, and 1-on-1 embassy interview drills.",
+    deliverable: "High Commission Visa Submission",
   },
   {
     step: "07",
-    title: "Pre-Departure Guidance",
-    desc: "Forex, packing checklists, student accommodation advice, and travel briefing.",
-    icon: PlaneTakeoff,
+    phase: "Departure",
+    title: "Pre-Departure & Flying",
+    desc: "Accommodation shortlisting, student forex card issuance, flight ticketing, and campus arrival briefing.",
+    deliverable: "Smooth Relocation & Campus Arrival",
   },
 ];
 
 export function JourneySection() {
   return (
-    <section className="py-20 lg:py-28 bg-navy-950 text-white border-b border-navy-900 relative overflow-hidden">
-      {/* Subtle architectural background texture */}
-      <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+    <section className="py-20 lg:py-28 bg-[#0B132B] text-white border-b border-slate-800 relative overflow-hidden">
+      {/* Subtle grid texture */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       <Container className="relative z-10">
-        <SectionHeading
-          kicker="Step-by-Step Roadmap"
-          kickerVariant="royal"
-          title="The Study Abroad Journey"
-          subtitle="A transparent, seven-stage process guiding you smoothly from your first consultation in Rohtak to arriving at your foreign campus."
-          theme="dark"
-        />
-
-        {/* Desktop Horizontal Timeline (Visible on lg screens and up) */}
-        <div className="hidden lg:block relative mt-16 mb-12">
-          {/* Horizontal Line connecting all steps */}
-          <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-navy-800 -translate-y-1/2 z-0" />
-
-          <div className="grid grid-cols-7 gap-3 relative z-10">
-            {journeySteps.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center text-center group"
-                >
-                  {/* Step Number Badge */}
-                  <span className="text-[11px] font-mono font-bold text-amber-400 bg-navy-900 border border-navy-700 px-2 py-0.5 rounded mb-3">
-                    {item.step}
-                  </span>
-
-                  {/* Circular Node */}
-                  <div className="w-12 h-12 rounded-full bg-navy-900 border-2 border-navy-700 group-hover:border-royal-500 group-hover:bg-royal-600 transition-colors flex items-center justify-center text-white mb-4 shadow-subtle">
-                    <Icon className="w-5 h-5" />
-                  </div>
-
-                  {/* Text Details */}
-                  <h4 className="text-xs font-bold text-white mb-1.5 leading-snug">
-                    {item.title}
-                  </h4>
-                  <p className="text-[11px] text-slate-400 leading-relaxed max-w-[140px]">
-                    {item.desc}
-                  </p>
-                </div>
-              );
-            })}
+        {/* Header */}
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-300 mb-2">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Structured 7-Stage Roadmap</span>
           </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.12]">
+            Your Journey from Rohtak to Your Foreign University
+          </h2>
+          <p className="text-base text-slate-300 mt-3 leading-relaxed">
+            Every step is governed by strict documentation checks and transparent milestones so you never face last-minute surprises.
+          </p>
         </div>
 
-        {/* Mobile & Tablet Vertical Timeline (Visible below lg) */}
-        <div className="lg:hidden space-y-6 relative pl-6 border-l-2 border-navy-800 ml-3 mt-8">
-          {journeySteps.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="relative group">
-                {/* Node on line */}
-                <div className="absolute -left-[35px] top-0 w-8 h-8 rounded-full bg-navy-900 border-2 border-royal-600 flex items-center justify-center text-white text-xs">
-                  <Icon className="w-3.5 h-3.5 text-royal-400" />
+        {/* Milestone Steps Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
+          {journeySteps.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-400/40 transition-colors group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-black text-amber-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">
+                    {item.step}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    {item.phase}
+                  </span>
                 </div>
 
-                <div className="bg-navy-900/80 p-4 rounded-lg border border-navy-800">
-                  <div className="flex items-center justify-between mb-1">
-                    <h4 className="text-sm font-bold text-white">
-                      {item.title}
-                    </h4>
-                    <span className="text-[11px] font-mono font-bold text-amber-400">
-                      Step {item.step}
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+                <h3 className="text-sm font-bold text-white mb-2 leading-snug group-hover:text-amber-300 transition-colors">
+                  {item.title}
+                </h3>
+
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  {item.desc}
+                </p>
               </div>
-            );
-          })}
+
+              <div className="pt-3 border-t border-slate-800/80 text-[10px] font-semibold text-slate-400">
+                <span className="text-amber-400/80 block">Milestone:</span>
+                <span className="text-slate-200">{item.deliverable}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </Container>
     </section>

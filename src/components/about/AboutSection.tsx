@@ -1,197 +1,167 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
-  CheckCircle,
+  CheckCircle2,
   MapPin,
   Clock,
-  Shield,
+  ShieldCheck,
   Award,
-  Users,
-  Building,
-  GraduationCap,
+  BookOpen,
+  ArrowRight,
+  Sparkles,
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
-import { Container, Badge, PhotoPlaceholder } from "@/components/ui";
+import { Container } from "@/components/ui";
 
-const guidancePillars = [
+const corePillars = [
   {
-    title: "Language Preparation",
-    desc: "IELTS & PTE coaching with realistic feedback and targeted scoring strategies.",
+    num: "01",
+    title: "Zero False Promises",
+    desc: "We never market unrealistic visa guarantees. Every profile is evaluated based on genuine academic merit, genuine funds, and realistic embassy acceptance criteria.",
   },
   {
-    title: "Country Selection",
-    desc: "Matching destination policies, post-study work rights, and living costs with your profile.",
+    num: "02",
+    title: "Direct University Representation",
+    desc: "We work directly with recognized colleges and world-ranked universities across Canada, UK, Australia, USA, Germany, and New Zealand.",
   },
   {
-    title: "Course Selection",
-    desc: "Aligning your prior academics with future career trajectories and industry demand.",
+    num: "03",
+    title: "Certified IELTS & PTE Testing Lab",
+    desc: "In-house Pearson-style computer testing lab and British Council/IDP certified trainers located right at Sheetal Lifestyle Mall, D-Park, Rohtak.",
   },
   {
-    title: "University Selection",
-    desc: "Unbiased institutional shortlisting across recognized colleges and universities.",
-  },
-  {
-    title: "Applications",
-    desc: "Accurate submission management respecting intake deadlines and academic prerequisites.",
-  },
-  {
-    title: "Documentation",
-    desc: "Thorough review of academic transcripts, statements, and financial proofs.",
-  },
-  {
-    title: "Visa Process",
-    desc: "Adhering strictly to high commission criteria and preparing candidates for embassy scrutiny.",
-  },
-  {
-    title: "Pre-Departure Preparation",
-    desc: "Guidance on accommodation, currency, travel documents, and initial arrival logistics.",
+    num: "04",
+    title: "Complete Pre & Post Landing Support",
+    desc: "From initial SOP drafting to visa stamping, flight booking, forex card guidance, and airport arrival assistance.",
   },
 ];
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white border-b border-border-subtle">
+    <section id="about" className="py-20 lg:py-28 bg-white border-b border-slate-200">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Authentic Photography Composition */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="rounded-xl overflow-hidden border border-border-subtle bg-white p-2.5 shadow-card">
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-slate-100">
+          
+          {/* Left Column: Authentic Photography Grid */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-[#FBFBF9] border border-slate-200 rounded-2xl p-3 shadow-sm">
+              <div className="relative aspect-[4/4.5] rounded-xl overflow-hidden bg-slate-900">
                 <Image
                   src="/images/owner.jpg"
-                  alt="Managing Director & Founder - Guruji Overseas Immigration Pvt. Ltd."
+                  alt="Managing Director & Founder - Guruji Overseas Rohtak"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent flex flex-col justify-end p-6 text-white">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="px-2.5 py-0.5 rounded bg-amber-500 text-navy-950 text-[11px] font-bold uppercase tracking-wider">
-                      Managing Director
-                    </span>
-                    <span className="text-xs text-slate-300">
-                      Established 2022
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white leading-tight">
-                    Guruji Overseas Leadership
-                  </h3>
-                  <p className="text-xs text-slate-300 mt-1 max-w-md">
-                    Direct, honest, and expert overseas education advisory for students across Haryana.
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex flex-col justify-end p-5 text-white">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-300 mb-1">
+                    Leadership Commitment
+                  </span>
+                  <p className="text-sm font-semibold italic text-slate-100 leading-snug">
+                    &ldquo;Every student walking into our Rohtak office gets transparent advice as if they were our own family.&rdquo;
+                  </p>
+                  <p className="text-xs text-slate-300 mt-2 font-bold">
+                    — Founder &amp; Managing Director
                   </p>
                 </div>
               </div>
-              <div className="pt-3 px-2 flex items-center justify-between text-xs text-charcoal-700">
-                <span className="font-semibold text-navy-950">
-                  {COMPANY_INFO.legalName}
+
+              <div className="pt-3 px-2 flex items-center justify-between text-xs text-slate-600">
+                <span className="font-bold text-slate-950">Guruji Overseas Immigration</span>
+                <span className="text-slate-500 flex items-center gap-1">
+                  <MapPin className="w-3 h-3 text-amber-600" /> D-Park, Rohtak
                 </span>
-                <span className="text-slate-500">Sheetal Lifestyle Mall, Rohtak</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="group rounded-xl overflow-hidden border border-slate-200 p-2 bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-navy-950">
-                  <Image
-                    src="/images/ielts-pte-lab.jpg"
-                    alt="Guruji Overseas Classroom & Computer Testing Lab"
-                    fill
-                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent flex items-end p-2">
-                    <span className="text-[10px] font-bold text-amber-300">Classroom &amp; Lab</span>
-                  </div>
-                </div>
-                <div className="pt-2 text-[11px] font-semibold text-charcoal-700 text-center">
-                  IELTS &amp; PTE Daily Batches
+            {/* Sub-gallery of actual facility */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 bg-slate-900">
+                <Image
+                  src="/images/ielts-pte-lab.jpg"
+                  alt="Rohtak IELTS and PTE Lab"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute bottom-2 left-2 right-2 text-white text-[11px] font-bold bg-slate-950/80 backdrop-blur-sm px-2 py-1 rounded">
+                  💻 Daily Computer Lab
                 </div>
               </div>
-
-              <div className="group rounded-xl overflow-hidden border border-slate-200 p-2 bg-white shadow-card hover:shadow-card-hover transition-all duration-300">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-navy-950">
-                  <Image
-                    src="/images/student-counseling.jpg"
-                    alt="Student Counseling and Overseas Admissions Desk"
-                    fill
-                    className="object-cover img-zoom group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent flex items-end p-2">
-                    <span className="text-[10px] font-bold text-amber-300">Advisory Desk</span>
-                  </div>
-                </div>
-                <div className="pt-2 text-[11px] font-semibold text-charcoal-700 text-center">
-                  1-on-1 Visa Consultation
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 bg-slate-900">
+                <Image
+                  src="/images/student-counseling.jpg"
+                  alt="1-on-1 Student Admissions Advisory"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute bottom-2 left-2 right-2 text-white text-[11px] font-bold bg-slate-950/80 backdrop-blur-sm px-2 py-1 rounded">
+                  🤝 1-on-1 Visa Desk
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Narrative */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
-            <Badge variant="amber" size="sm" className="mb-4">
-              About Guruji Overseas
-            </Badge>
+          {/* Right Column: Editorial Narrative & Institutional Pillars */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-700 mb-3">
+              <ShieldCheck className="w-4 h-4 text-amber-600" />
+              <span>Institutional Integrity</span>
+            </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-950 tracking-tight leading-tight mb-5">
-              Guidance That Goes Beyond the Application.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.12] mb-5">
+              Empowering Haryana Students with Transparent Global Education.
             </h2>
 
-            <p className="text-base text-charcoal-600 leading-relaxed mb-6 font-normal">
-              Founded in 2022 in Rohtak, Haryana,{" "}
-              <strong className="text-navy-950 font-semibold">
-                {COMPANY_INFO.legalName}
-              </strong>{" "}
-              was established to provide honest, transparent, and step-by-step
-              counseling for families and students investing in foreign education.
+            <p className="text-base text-slate-600 leading-relaxed mb-6 font-normal">
+              Based in the heart of Rohtak at Sheetal Lifestyle Mall, Guruji Overseas was founded to eliminate ambiguity in the study abroad sector. 
+              We bridge the gap between ambitious students across Haryana and accredited institutions across Canada, UK, Australia, USA, Germany, and New Zealand.
             </p>
 
-            <p className="text-sm text-charcoal-600 leading-relaxed mb-8">
-              We understand that studying abroad is not just an application form —
-              it is a life-defining transition. Our advisors work closely with
-              each student through every critical phase:
-            </p>
-
-            {/* 8 Step Support Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full mb-8">
-              {guidancePillars.map((item, idx) => (
+            {/* 4 Core Pillars */}
+            <div className="space-y-4 w-full mb-8">
+              {corePillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-md bg-surface-gray/60 border border-border-subtle flex flex-col justify-start"
+                  className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-4 hover:border-slate-200 transition-colors"
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    <CheckCircle className="w-4 h-4 text-royal-600 shrink-0" />
-                    <h4 className="text-xs font-bold text-navy-950">
-                      {item.title}
+                  <span className="text-sm font-black text-amber-600 font-mono shrink-0 mt-0.5">
+                    {pillar.num}
+                  </span>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-950 mb-1">
+                      {pillar.title}
                     </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {pillar.desc}
+                    </p>
                   </div>
-                  <p className="text-[11px] text-charcoal-600 pl-6 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
               ))}
             </div>
 
-            {/* Verified Location & Contact Bar */}
-            <div className="w-full p-4 rounded-lg bg-navy-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="text-xs">
-                <div className="font-bold text-amber-400 mb-0.5">
-                  Visit Our Official Rohtak Center
-                </div>
-                <div className="text-slate-300">
-                  Shop No. 125, 1st Floor, Sheetal Lifestyle Mall (Opp. D-Park)
-                </div>
+            {/* Verified Center Info Box */}
+            <div className="w-full p-5 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300 block mb-0.5">
+                  Walk-In Consultations Available
+                </span>
+                <p className="text-xs text-slate-300">
+                  Monday to Saturday: 9:00 AM – 6:00 PM • Sheetal Lifestyle Mall, Rohtak
+                </p>
               </div>
-              <a
-                href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
-                className="px-4 py-2 rounded bg-royal-600 hover:bg-royal-700 text-white text-xs font-semibold shrink-0 transition-colors"
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold rounded-lg transition-colors shrink-0"
               >
-                Call {COMPANY_INFO.contact.displayPhone}
-              </a>
+                <span>Get Directions &amp; Contact</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
+
         </div>
       </Container>
     </section>

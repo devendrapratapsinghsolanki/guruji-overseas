@@ -2,163 +2,162 @@ import React from "react";
 import Link from "next/link";
 import {
   GraduationCap,
-  Briefcase,
   Plane,
   HeartHandshake,
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  FileCheck,
+  FileCheck2,
 } from "lucide-react";
-import { Container, SectionHeading, Button } from "@/components/ui";
+import { Container } from "@/components/ui";
 
-const visaCategories = [
+const visaTypes = [
   {
     id: "student-visa",
-    icon: GraduationCap,
     title: "Student Visa Guidance",
-    badge: "Primary Service",
+    badge: "Core Service",
     href: "/visa-services/student-visa",
-    desc: "Complete filing assistance for higher education study permits in Canada, UK, Australia, New Zealand, USA, and Germany.",
-    focusAreas: [
-      "Letter of Acceptance (LOA / CAS / I-20 / CoE) verification",
-      "Financial documentation and proof of funds audit",
-      "Statement of Purpose (SOP) academic justification",
-      "Mock interview sessions for embassy evaluation",
+    summary:
+      "Full documentation and filing for higher education study permits across Canada (SDS/Non-SDS), UK (Student Route), Australia (Subclass 500), USA (F-1), Germany, and NZ.",
+    checklist: [
+      "LOA / CAS / I-20 / CoE Verification",
+      "SOP & Genuine Student (GS) Intent Drafting",
+      "Financial Proof & Bank Solvency Audit",
+      "Embassy Mock Interview Sessions",
     ],
   },
   {
     id: "visitor-visa",
-    icon: Plane,
-    title: "Visitor & Travel Visa",
-    badge: "Family & Tourism",
+    title: "Visitor & Convocation Visas",
+    badge: "Parents & Families",
     href: "/visa-services/visitor-visa",
-    desc: "Application assistance for parents attending university convocation ceremonies, family visits, and general tourism.",
-    focusAreas: [
-      "Sponsorship and invitation letter structuring",
-      "Strong home-country ties and leave justification",
-      "Travel itinerary and financial evidence checks",
-      "Biometrics appointment booking and tracking",
+    summary:
+      "Comprehensive assistance for parents attending overseas university convocation ceremonies, visiting enrolled children, or general tourism.",
+    checklist: [
+      "Sponsorship & University Invitation Letters",
+      "Strong Home Ties & Employment Proof",
+      "Travel Itinerary & Medical Insurance",
+      "Biometrics & Appointment Scheduling",
     ],
   },
   {
     id: "dependent-visa",
-    icon: HeartHandshake,
-    title: "Dependent / Spouse Visa",
+    title: "Spouse & Dependent Visas",
     badge: "Family Reunification",
     href: "/visa-services/dependent-visa",
-    desc: "Support for spouses and children accompanying primary international students overseas.",
-    focusAreas: [
-      "Genuine relationship proof and marriage documentation",
-      "Primary applicant student visa and accommodation verification",
-      "Dependent living expense and financial maintenance proof",
-      "Consular submission and interview readiness",
+    summary:
+      "Filing support for spouses and children accompanying primary international students under applicable country stay regulations.",
+    checklist: [
+      "Genuine Relationship & Marriage Evidence",
+      "Primary Student Enrolment Proof",
+      "Sufficient Financial Maintenance Audit",
+      "High Commission Submission Compliance",
     ],
   },
   {
-    id: "documentation-review",
-    icon: FileCheck,
-    title: "Document Scrutiny & Mock Interviews",
-    badge: "Quality Assurance",
+    id: "refusal-audit",
+    title: "Visa Refusal & Case Review",
+    badge: "Specialized Advisory",
     href: "/visa-services",
-    desc: "Meticulous multi-tier verification of all academic certificates, bank statements, affidavits, and embassy interview drills.",
-    focusAreas: [
-      "Bank statement & source of funds verification",
-      "Gap justification and work experience affidavits",
-      "1-on-1 embassy mock interview simulation",
-      "Refusal case review and reapplication strategy",
+    summary:
+      "Expert scrutiny of past refusal letters (GCMS notes for Canada, UK refusal notices). We identify root deficiencies and restructure your application for success.",
+    checklist: [
+      "GCMS / Refusal Reason Extraction",
+      "SOP Restructuring & Gap Justification",
+      "Financial Source Clarification Affidavits",
+      "Fresh Stronger Re-lodgement Strategy",
     ],
   },
 ];
 
 export function VisaServicesSection() {
   return (
-    <section id="visa-services" className="py-20 lg:py-28 bg-surface-gray/50 border-b border-border-subtle">
+    <section id="visa-services" className="py-20 lg:py-28 bg-[#FBFBF9] border-b border-slate-200">
       <Container>
-        <SectionHeading
-          kicker="Visa Assistance"
-          title="Thorough Visa Guidance & Documentation"
-          subtitle="Navigating student and visitor visa regulations requires rigorous accuracy. We assist candidates with document scrutiny, financial alignment, and interview preparation conforming strictly to high commission guidelines."
-        />
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-700 mb-2">
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+            <span>High Commission Advisory</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-[1.12]">
+            Rigorous Visa Documentation &amp; Filing
+          </h2>
+          <p className="text-base text-slate-600 mt-3 leading-relaxed">
+            Visa regulations change frequently. We ensure that every financial statement, academic document, and SOP complies precisely with embassy guidelines.
+          </p>
+        </div>
 
         {/* 4 Visa Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {visaCategories.map((visa) => {
-            const Icon = visa.icon;
-            return (
-              <div
-                key={visa.id}
-                className="rounded-xl border border-border-subtle bg-white p-7 flex flex-col justify-between hover:border-slate-300 hover:shadow-card transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-lg bg-navy-50 text-navy-900 flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[11px] font-bold text-royal-700 bg-royal-50 px-2.5 py-0.5 rounded border border-blue-100">
-                      {visa.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-navy-950 mb-2">
-                    {visa.title}
-                  </h3>
-                  <p className="text-sm text-charcoal-600 leading-relaxed mb-6">
-                    {visa.desc}
-                  </p>
-
-                  <div className="space-y-2.5 mb-6">
-                    <span className="text-xs font-bold text-charcoal-800 uppercase tracking-wider block">
-                      Key Procedural Focus:
-                    </span>
-                    {visa.focusAreas.map((point, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-2.5 text-xs text-charcoal-700"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-royal-600 shrink-0 mt-0.5" />
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
+          {visaTypes.map((visa) => (
+            <div
+              key={visa.id}
+              className="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+                    {visa.badge}
+                  </span>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs text-slate-500">
-                    Process scrutiny &amp; review
+                <h3 className="text-xl font-bold text-slate-950 mb-2">
+                  {visa.title}
+                </h3>
+
+                <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                  {visa.summary}
+                </p>
+
+                {/* Checklist */}
+                <div className="space-y-2.5 py-4 border-t border-slate-100 mb-4">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
+                    Key Scrutiny Areas:
                   </span>
-                  <Link
-                    href={visa.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-royal-700 hover:text-royal-800"
-                  >
-                    <span>View Details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  {visa.checklist.map((item, cidx) => (
+                    <div key={cidx} className="flex items-center gap-2 text-xs text-slate-700">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <Link
+                  href={visa.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  <span>Read Detailed Visa Guidelines</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Ethical Transparency Disclaimer */}
-        <div className="p-6 rounded-xl bg-white border border-border-subtle shadow-subtle flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex items-start gap-3.5 max-w-3xl">
-            <ShieldCheck className="w-6 h-6 text-royal-600 shrink-0 mt-0.5" />
+        {/* Document Audit Assurance Banner */}
+        <div className="p-6 rounded-2xl bg-slate-950 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+              <FileCheck2 className="w-5 h-5" />
+            </div>
             <div>
-              <h4 className="text-sm font-bold text-navy-950 mb-1">
-                Our Ethical Visa Policy
+              <h4 className="text-sm font-bold text-white">
+                Have a Complex Profile or Past Visa Refusal?
               </h4>
-              <p className="text-xs text-charcoal-600 leading-relaxed">
-                Visa decisions rest solely with the respective government embassies
-                and high commissions. Guruji Overseas guarantees rigorous file preparation,
-                procedural compliance, and mock interview coaching — we never make
-                fraudulent guarantees or claim unverified success rates.
+              <p className="text-xs text-slate-400">
+                Book a confidential 1-on-1 document review with our senior visa counsellor in Rohtak.
               </p>
             </div>
           </div>
-          <Button variant="royal" size="md" href="/contact" className="shrink-0">
-            Book File Review
-          </Button>
+          <Link
+            href="/contact"
+            className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition-colors shrink-0"
+          >
+            Schedule Profile Audit
+          </Link>
         </div>
       </Container>
     </section>
