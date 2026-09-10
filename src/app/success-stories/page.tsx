@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import {
-  Award,
   Star,
   Quote,
   CheckCircle2,
@@ -21,6 +20,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
+import { ReviewsAndVisaMarqueeSection } from "@/components/testimonials";
 
 interface StoryItem {
   id: string;
@@ -151,36 +151,21 @@ export default function SuccessStoriesPage() {
         primaryCtaHref="/contact"
       />
 
-      {/* Reputation Badge Banner */}
-      <section className="py-6 bg-surface-gray border-b border-border-subtle">
-        <Container>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-white border border-slate-200">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
-                <Star className="w-5 h-5 fill-amber-500 text-amber-500" />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-navy-950">
-                  {COMPANY_INFO.reputation.source} — {COMPANY_INFO.reputation.rating} / 5.0 Star Rating
-                </div>
-                <div className="text-[11px] text-slate-500">
-                  Based on over {COMPANY_INFO.reputation.reviewCount} genuine feedback entries from students and parents.
-                </div>
-              </div>
-            </div>
-            <Link
-              href="/contact"
-              className="text-xs font-bold text-royal-700 hover:text-royal-800 shrink-0"
-            >
-              Visit Rohtak Office →
-            </Link>
-          </div>
-        </Container>
-      </section>
+      {/* Live Animated Reviews & Placed Visa Students Dual Marquee */}
+      <ReviewsAndVisaMarqueeSection />
 
       {/* Filter Tabs & Stories Grid */}
       <section className="py-16 sm:py-24 bg-surface-gray/50 border-b border-border-subtle">
         <Container>
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-navy-950">
+              Detailed Case Studies &amp; Candid Feedback
+            </h2>
+            <p className="text-xs sm:text-sm text-charcoal-600 mt-1">
+              Select a category to view specific student visa approvals and coaching test scores.
+            </p>
+          </div>
+
           {/* Category Filter Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10">
             {["All", "Canada Visa", "UK Visa", "Australia Visa", "USA Visa", "IELTS 7.5+", "PTE 79+"].map((cat) => (

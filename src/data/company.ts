@@ -6,8 +6,10 @@ export const COMPANY_INFO = {
 
   contact: {
     primaryPhone: "+91 79884 29392",
-    displayPhone: "+91 79884 29392",
+    secondaryPhone: "+91 7056 544 009",
+    displayPhone: "+91 79884 29392 / +91 7056 544 009",
     whatsappNumber: "917988429392",
+    secondaryWhatsappNumber: "917056544009",
     email: "gurujioverseasrtk@gmail.com",
     officeHours: "Monday - Saturday: 9:30 AM - 6:30 PM",
   },
