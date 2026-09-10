@@ -26,6 +26,13 @@ export async function POST(request: NextRequest) {
     const randomCode = Math.random().toString(36).substring(2, 6).toUpperCase();
     const enquiryId = `GO-ENQ-${timestamp}-${randomCode}`;
 
+    // Record into CRM Data Architecture (Decoupled Service)
+    const { LeadService } = await import("@/lib/services/leadService");
+    await LeadService.createLeadFromWebsiteEnquiry(body, {
+      trackingId: enquiryId,
+      sourceContext: body.formType,
+    });
+
     // Notification summary for Email (gurujioverseasrtk@gmail.com) and Phone (7988429392)
     const notificationPayload = {
       enquiryId,

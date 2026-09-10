@@ -1,0 +1,169 @@
+// Guruji Overseas - Enterprise CRM & Admissions Prisma Schema
+// Ready for PostgreSQL database integration
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  COUNSELLING
+  DOCUMENTS
+  APPLICATION
+  VISA_PROCESSING
+  APPROVED
+  CLOSED
+}
+
+enum LeadPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum CounsellorRole {
+  SENIOR_COUNSELLOR
+  ADMISSIONS_OFFICER
+  VISA_SPECIALIST
+  BRANCH_MANAGER
+}
+
+enum StudyLevelEnum {
+  UNDERGRADUATE
+  POSTGRADUATE
+  POST_GRADUATE_DIPLOMA
+  DIPLOMA_CERTIFICATE
+  DOCTORATE
+}
+
+model Counsellor {
+  id             String         @id @default(uuid())
+  name           String
+  email          String         @unique
+  phone          String
+  role           CounsellorRole @default(SENIOR_COUNSELLOR)
+  branchLocation String         @default("Rohtak HQ - Sheetal Lifestyle Mall")
+  isActive       Boolean        @default(true)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  assignedLeads Lead[]
+  notesAuthored LeadNote[]
+
+  @@map("counsellors")
+}
+
+model Lead {
+  id             String       @id @default(cuid()) // Formatted Tracking ID e.g. "GO-ENQ-XXXX"
+  name           String
+  phone          String
+  email          String?
+  city           String?
+  qualification  String
+  percentage     String       // e.g. "78%" or "8.2 CGPA"
+  country        String       // "Canada", "UK", "Australia", "New Zealand", "USA", "Germany", "Undecided"
+  course         String
+  test           String       // "planning", "not-taken", "appeared", "exempted"
+  testScore      String?      // e.g. "IELTS 7.0" or "PTE 68"
+  workExperience String       @default("none")
+  intake         String       // "fall-upcoming", "spring-upcoming", "summer-upcoming", "flexible"
+  message        String?      @db.Text
+  sourceContext  String?      @default("Website General")
+  formType       String       @default("book-counselling")
+
+  status         LeadStatus   @default(NEW)
+  priority       LeadPriority @default(MEDIUM)
+
+  assignedCounsellorId String?
+  assignedCounsellor   Counsellor? @relation(fields: [assignedCounsellorId], references: [id], onDelete: SetNull)
+
+  notes        LeadNote[]
+  activityLogs LeadActivity[]
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  lastContactedAt DateTime?
+
+  @@index([status])
+  @@index([country])
+  @@index([phone])
+  @@index([createdAt])
+  @@index([assignedCounsellorId])
+  @@map("leads")
+}
+
+model LeadNote {
+  id         String   @id @default(uuid())
+  leadId     String
+  lead       Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  authorId   String
+  author     Counsellor @relation(fields: [authorId], references: [id], onDelete: Restrict)
+  content    String   @db.Text
+  isPrivate  Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([leadId])
+  @@map("lead_notes")
+}
+
+model LeadActivity {
+  id          String     @id @default(uuid())
+  leadId      String
+  lead        Lead       @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  performedBy String     // Counsellor name or "System / Webhook"
+  action      String     // "STATUS_CHANGED", "NOTE_ADDED", "CALL_LOGGED", etc.
+  fromStatus  LeadStatus?
+  toStatus    LeadStatus?
+  description String     @db.Text
+  timestamp   DateTime   @default(now())
+
+  @@index([leadId])
+  @@map("lead_activities")
+}
+
+model University {
+  id             String           @id
+  name           String
+  country        String
+  countrySlug    String
+  city           String
+  stateOrProvince String?
+  logo           String?
+  coverImage     String
+  description    String           @db.Text
+  institutionType String
+  studyLevels    StudyLevelEnum[]
+  popularCourses String[]
+  
+  // Tuition & Budget Fields
+  minTuition     Float
+  maxTuition     Float
+  currency       String
+  formattedTuition String
+  budgetTier     String           // "nominal", "moderate", "premium"
+  
+  intakes        String[]
+  minAcademicScore String
+  ieltsRequirement String
+  pteRequirement String
+  
+  website        String?
+  applicationUrl String?
+  featured       Boolean          @default(false)
+  isDemoSample   Boolean          @default(false)
+
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@index([country])
+  @@index([featured])
+  @@map("universities")
+}

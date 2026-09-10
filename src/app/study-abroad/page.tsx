@@ -25,20 +25,26 @@ import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COUNTRIES_DATA } from "@/data/destinationsData";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "Study Abroad Consultancy in Rohtak | Canada, UK, Australia, NZ, USA, Germany | Guruji Overseas",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Study Abroad Consultants in Rohtak | Canada, UK, Australia, NZ, USA, Germany",
   description:
-    "Explore 6 major study destinations with Guruji Overseas Rohtak. Compare top universities, tuition fees, post-study work rights, intake cycles, and get complete student visa guidance.",
+    "Expert study abroad consultancy in Rohtak, Haryana. Comprehensive admissions and visa guidance for Canada, UK, Australia, New Zealand, USA, and Germany.",
+  path: "/study-abroad",
   keywords: [
-    "Study Abroad Rohtak",
-    "Overseas Education Consultant Rohtak",
-    "Study in Canada Rohtak",
-    "Study in UK Rohtak",
-    "Study in Australia Rohtak",
-    "Study in USA Rohtak",
-    "Study in Germany Rohtak",
+    "Study abroad consultants",
+    "Study abroad consultant Rohtak",
+    "Overseas education consultancy",
+    "Study in Canada",
+    "Study in UK",
+    "Study in Australia",
+    "Study in New Zealand",
+    "Study in USA",
+    "Study in Germany",
+    "Student visa guidance",
   ],
-};
+});
 
 const intakeCycles = [
   {

@@ -27,19 +27,23 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "PTE Academic Coaching in Rohtak | Computer Lab & AI Mock Tests | Guruji Overseas",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "PTE Preparation & Academic Coaching in Rohtak | Computer Lab & Mock Tests",
   description:
-    "Top PTE Academic coaching institute in Rohtak with a dedicated computer lab. Master Speaking, Writing, Reading & Listening with proven high-scoring templates, AI software scoring, and weekly mock exams.",
+    "Top PTE preparation institute in Rohtak with a dedicated Pearson software computer lab. Master Speaking, Writing, Reading & Listening with proven scoring strategies, AI scoring analytics, and full mock exams.",
+  path: "/test-preparation/pte",
   keywords: [
-    "PTE Coaching Rohtak",
+    "PTE preparation",
+    "PTE coaching Rohtak",
     "PTE Academic Classes Rohtak",
     "PTE Lab Rohtak Haryana",
     "PTE 79 Score Coaching",
     "Pearson Test of English Rohtak",
-    "Guruji Overseas Rohtak",
+    "Guruji Overseas",
   ],
-};
+});
 
 const pteSections = [
   {

@@ -23,19 +23,24 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "Visa Guidance & Documentation Services | Guruji Overseas Rohtak",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Student Visa Guidance & Immigration Services in Rohtak",
   description:
     "Transparent visa assistance from Guruji Overseas Rohtak. Specialized guidance for Student Visas, Visitor Visas, and Dependent/Spouse Visas for Canada, UK, Australia, New Zealand, USA, and Germany.",
+  path: "/visa-services",
   keywords: [
+    "Student visa guidance",
     "Student Visa Consultant Rohtak",
     "Visitor Visa Assistance Rohtak",
     "Spouse Visa Consultant Rohtak",
     "Canada Study Permit Rohtak",
     "UK Student Visa Guidance Rohtak",
-    "Guruji Overseas Rohtak",
+    "Overseas education consultancy",
+    "Guruji Overseas",
   ],
-};
+});
 
 const visaCategories = [
   {

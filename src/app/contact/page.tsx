@@ -61,7 +61,7 @@ export default function ContactPage() {
 
               {/* Direct Call & WhatsApp Action Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
-                {/* Phone Call Card */}
+                {/* Phone Call Card 1 */}
                 <a
                   href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
                   className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-royal-300 hover:shadow-card transition-all flex items-start gap-4 group"
@@ -71,12 +71,31 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                      Direct Helpline
+                      Primary Advisory Helpline
                     </div>
                     <div className="text-sm font-extrabold text-navy-950 group-hover:text-royal-700 transition-colors">
-                      {COMPANY_INFO.contact.displayPhone}
+                      {COMPANY_INFO.contact.primaryPhone}
                     </div>
-                    <div className="text-[11px] text-slate-500 mt-0.5">Click to call immediately</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5">IELTS/PTE Coaching &amp; General Inquiries</div>
+                  </div>
+                </a>
+
+                {/* Phone Call Card 2 */}
+                <a
+                  href={`tel:${COMPANY_INFO.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                  className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-royal-300 hover:shadow-card transition-all flex items-start gap-4 group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-royal-50 text-royal-700 group-hover:bg-royal-700 group-hover:text-white transition-colors flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      Admissions &amp; Visa Helpline
+                    </div>
+                    <div className="text-sm font-extrabold text-navy-950 group-hover:text-royal-700 transition-colors">
+                      {COMPANY_INFO.contact.secondaryPhone}
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-0.5">University Admissions &amp; Visa Processing</div>
                   </div>
                 </a>
 
@@ -101,7 +120,7 @@ export default function ContactPage() {
                       Instant WhatsApp
                     </div>
                     <div className="text-sm font-extrabold text-navy-950 group-hover:text-emerald-700 transition-colors">
-                      +91 7056 544 009
+                      {COMPANY_INFO.contact.primaryPhone}
                     </div>
                     <div className="text-[11px] text-slate-500 mt-0.5">Direct chat with counsellor</div>
                   </div>

@@ -26,19 +26,24 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "IELTS & PTE Coaching in Rohtak | Guruji Overseas Test Preparation Lab",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "IELTS & PTE Preparation in Rohtak | Certified Coaching Lab",
   description:
-    "Top-rated IELTS and PTE coaching center in Rohtak, Haryana. Comprehensive classroom coaching, dedicated PTE computer lab, daily 1-on-1 speaking drills, and full mock tests at Sheetal Lifestyle Mall.",
+    "Top-rated IELTS and PTE preparation center in Rohtak, Haryana. Comprehensive classroom coaching, dedicated PTE computer lab, daily 1-on-1 speaking drills, and scored mock tests at Sheetal Lifestyle Mall.",
+  path: "/test-preparation",
   keywords: [
-    "IELTS Coaching Rohtak",
-    "PTE Coaching Rohtak",
+    "IELTS preparation",
+    "IELTS coaching Rohtak",
+    "PTE preparation",
+    "PTE coaching Rohtak",
     "Best IELTS Institute in Rohtak",
     "PTE Computer Lab Rohtak",
     "Spoken English Classes Rohtak",
-    "Guruji Overseas Rohtak",
+    "Guruji Overseas",
   ],
-};
+});
 
 const comparisonData = [
   {

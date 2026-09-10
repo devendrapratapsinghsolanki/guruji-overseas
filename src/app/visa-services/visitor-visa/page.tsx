@@ -21,10 +21,13 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "Visitor & Tourist Visa Assistance in Rohtak | Guruji Overseas",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Visitor & Tourist Visa Guidance in Rohtak | Guruji Overseas",
   description:
     "Expert visitor visa filing for Canada, UK, Australia, USA, New Zealand, and Schengen Europe. Guidance for parents attending convocations, family visits, and tourism from our Rohtak office.",
+  path: "/visa-services/visitor-visa",
   keywords: [
     "Visitor Visa Consultant Rohtak",
     "Tourist Visa Consultant Rohtak",
@@ -32,9 +35,9 @@ export const metadata: Metadata = {
     "UK Visitor Visa Rohtak",
     "US B1/B2 Visa Rohtak",
     "Australia Tourist Visa Rohtak",
-    "Guruji Overseas Rohtak",
+    "Guruji Overseas",
   ],
-};
+});
 
 const visitorPurposes = [
   {

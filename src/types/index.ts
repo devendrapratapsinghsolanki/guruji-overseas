@@ -29,3 +29,8 @@ export interface ConsultationRequest {
   serviceNeeded?: string;
   message?: string;
 }
+
+// Re-export CRM and Domain Models
+export * from "./enquiry";
+export * from "./crm";
+export * from "./university";

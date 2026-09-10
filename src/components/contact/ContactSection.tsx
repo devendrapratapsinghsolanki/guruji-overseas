@@ -33,12 +33,21 @@ export function ContactSection() {
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-0.5">
                   Direct Phone / Helpline
                 </span>
-                <a
-                  href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
-                  className="text-lg font-bold text-navy-950 hover:text-royal-600 transition-colors block"
-                >
-                  {COMPANY_INFO.contact.displayPhone}
-                </a>
+                <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg font-bold text-navy-950">
+                  <a
+                    href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
+                    className="hover:text-royal-600 transition-colors"
+                  >
+                    {COMPANY_INFO.contact.primaryPhone}
+                  </a>
+                  <span className="text-slate-300">/</span>
+                  <a
+                    href={`tel:${COMPANY_INFO.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                    className="hover:text-royal-600 transition-colors"
+                  >
+                    {COMPANY_INFO.contact.secondaryPhone}
+                  </a>
+                </div>
                 <p className="text-xs text-charcoal-600 mt-1">
                   Call for appointments, batch schedules, and admission queries.
                 </p>

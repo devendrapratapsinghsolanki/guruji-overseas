@@ -25,19 +25,23 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "IELTS Coaching in Rohtak | Academic & General Band 7.5+ Training | Guruji Overseas",
+import { constructMetadata, getCourseSchema } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "IELTS Preparation & Coaching in Rohtak | Academic & General Training",
   description:
-    "Join the best IELTS coaching institute in Rohtak. Expert preparation for IELTS Academic & General Training with 1-on-1 daily speaking cabin drills, writing assessment, and weekly full mock tests.",
+    "Join the best IELTS preparation institute in Rohtak, Haryana. Comprehensive IELTS Academic & General Training with 1-on-1 daily speaking cabin drills, writing correction, and weekly mock exams.",
+  path: "/test-preparation/ielts",
   keywords: [
-    "IELTS Coaching Rohtak",
+    "IELTS preparation",
+    "IELTS coaching Rohtak",
     "IELTS Academic Training Rohtak",
     "IELTS General Coaching Rohtak",
     "IELTS Speaking Practice Rohtak",
     "IELTS Band 7 Coaching Haryana",
-    "Guruji Overseas Rohtak",
+    "Guruji Overseas",
   ],
-};
+});
 
 const ieltsSections = [
   {

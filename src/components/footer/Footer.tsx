@@ -29,12 +29,21 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <a
-                  href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
-                  className="hover:text-white font-semibold text-slate-300"
-                >
-                  {COMPANY_INFO.contact.displayPhone}
-                </a>
+                <div className="flex flex-wrap items-center gap-1 font-semibold text-slate-300">
+                  <a
+                    href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
+                    className="hover:text-amber-400 transition-colors"
+                  >
+                    {COMPANY_INFO.contact.primaryPhone}
+                  </a>
+                  <span className="text-slate-600">/</span>
+                  <a
+                    href={`tel:${COMPANY_INFO.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                    className="hover:text-amber-400 transition-colors"
+                  >
+                    {COMPANY_INFO.contact.secondaryPhone}
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />

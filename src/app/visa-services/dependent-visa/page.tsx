@@ -22,19 +22,22 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "Dependent & Spouse Visa Assistance in Rohtak | Guruji Overseas",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Dependent & Spouse Visa Guidance in Rohtak | Guruji Overseas",
   description:
     "Expert spouse and dependent visa filing for Canada, UK, Australia, New Zealand, USA, and Germany. Comprehensive marriage documentation review, financial maintenance audit, and consular filing from Rohtak.",
+  path: "/visa-services/dependent-visa",
   keywords: [
     "Spouse Visa Consultant Rohtak",
     "Dependent Visa Assistance Rohtak",
     "Canada Spousal Open Work Permit Rohtak",
     "Australia Dependent Student Visa Rohtak",
     "UK Dependant Visa Rohtak",
-    "Guruji Overseas Rohtak",
+    "Guruji Overseas",
   ],
-};
+});
 
 const dependentCountryPolicies = [
   {

@@ -42,27 +42,33 @@ export async function generateStaticParams() {
   }));
 }
 
+import { constructMetadata } from "@/lib/seo";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { country } = await params;
   const data = COUNTRIES_DATA[country];
 
   if (!data) {
-    return {
-      title: "Country Not Found | Guruji Overseas",
-    };
+    return constructMetadata({
+      title: "Country Not Found",
+      noIndex: true,
+    });
   }
 
-  return {
+  return constructMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
+    path: `/study-abroad/${country}`,
     keywords: [
       `Study in ${data.name}`,
       `${data.name} Student Visa Rohtak`,
       `${data.name} universities`,
       `${data.name} intake admission`,
+      `${data.name} post study work permit`,
       "Guruji Overseas Rohtak",
     ],
-  };
+    image: data.image,
+  });
 }
 
 export default async function CountryPage({ params }: Props) {

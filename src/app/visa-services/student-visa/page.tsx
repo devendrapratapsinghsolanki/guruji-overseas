@@ -23,19 +23,24 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "Student Visa Assistance in Rohtak | Canada, UK, Australia, USA, Germany | Guruji Overseas",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Student Visa Guidance in Rohtak | Canada, UK, Australia, USA, Germany",
   description:
     "End-to-end student visa guidance from Guruji Overseas Rohtak. Meticulous document scrutiny, SOP drafting, financial verification, GIC/Blocked Accounts, and 1-on-1 embassy mock interview preparation.",
+  path: "/visa-services/student-visa",
   keywords: [
+    "Student visa guidance",
     "Student Visa Consultant Rohtak",
     "Study Visa Rohtak Haryana",
     "Canada Study Permit Filing Rohtak",
     "UK Student Route Visa Rohtak",
     "USA F1 Visa Interview Rohtak",
     "Australia Subclass 500 Visa Rohtak",
+    "Guruji Overseas",
   ],
-};
+});
 
 const countryVisaHighlights = [
   {

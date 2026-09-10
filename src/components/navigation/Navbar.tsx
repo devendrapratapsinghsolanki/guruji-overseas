@@ -174,18 +174,27 @@ export function Navbar() {
             </span>
           </div>
 
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex items-center gap-3 shrink-0">
             <div className="hidden sm:flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              <span>Opp. D-Park, Model Town</span>
+              <span>Opp. D-Park, Rohtak</span>
             </div>
-            <a
-              href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
-              className="flex items-center gap-1.5 font-semibold text-white hover:text-amber-400 transition-colors cursor-pointer"
-            >
-              <Phone className="w-3.5 h-3.5 text-amber-400 cursor-pointer" />
-              <span className="cursor-pointer">{COMPANY_INFO.contact.displayPhone}</span>
-            </a>
+            <div className="flex items-center gap-2 font-semibold text-white">
+              <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <a
+                href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
+                className="hover:text-amber-400 transition-colors"
+              >
+                {COMPANY_INFO.contact.primaryPhone}
+              </a>
+              <span className="text-slate-500">/</span>
+              <a
+                href={`tel:${COMPANY_INFO.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                className="hover:text-amber-400 transition-colors"
+              >
+                {COMPANY_INFO.contact.secondaryPhone}
+              </a>
+            </div>
           </div>
         </Container>
       </div>
@@ -596,6 +605,24 @@ export function Navbar() {
                 >
                   Book Free In-Person Counselling
                 </Button>
+              </div>
+
+              {/* Mobile Direct Helplines */}
+              <div className="grid grid-cols-2 gap-2 pt-1">
+                <a
+                  href={`tel:${COMPANY_INFO.contact.primaryPhone.replace(/\s+/g, "")}`}
+                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-navy-950 text-white text-xs font-bold hover:bg-navy-900 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Call 7988429392</span>
+                </a>
+                <a
+                  href={`tel:${COMPANY_INFO.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-royal-700 text-white text-xs font-bold hover:bg-royal-800 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Call 7056544009</span>
+                </a>
               </div>
 
               {/* Office Location info in Drawer */}

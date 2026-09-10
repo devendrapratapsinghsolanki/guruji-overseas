@@ -25,18 +25,22 @@ import { CtaSection } from "@/components/layout/CtaSection";
 import { Container, Badge, Button, SectionHeading } from "@/components/ui";
 import { COMPANY_INFO } from "@/data/company";
 
-export const metadata: Metadata = {
-  title: "About Us | Guruji Overseas Immigration Private Limited | Rohtak, Haryana",
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "About Us | Guruji Overseas Immigration Private Limited",
   description:
-    "Learn about Guruji Overseas Immigration Private Limited. Established in 2022 in Rohtak, Haryana, we are a premier overseas education and visa assistance consultancy with a 5.0-star Justdial verified rating.",
+    "Learn about Guruji Overseas Immigration Private Limited. Established in 2022 in Rohtak, Haryana, we provide ethical overseas education counselling, IELTS/PTE training, and visa assistance.",
+  path: "/about",
   keywords: [
     "About Guruji Overseas",
     "Guruji Overseas Immigration Private Limited",
     "Study Abroad Consultant Rohtak Haryana",
     "Best Visa Consultant Rohtak",
+    "Overseas education consultancy",
     "Sheetal Lifestyle Mall Rohtak",
   ],
-};
+});
 
 export default function AboutPage() {
   return (
