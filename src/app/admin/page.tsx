@@ -25,12 +25,75 @@ export default function AdminDashboardPage() {
   const [stats, setStats] = useState<LeadStatsSummary | null>(null);
   const [recentLeads, setRecentLeads] = useState<LeadRecord[]>([]);
 
+  const [resultsCount, setResultsCount] = useState<number>(DEFAULT_STUDENT_RESULTS.length);
+  const [blogsCount, setBlogsCount] = useState<number>(DEFAULT_BLOG_POSTS.length);
+
   useEffect(() => {
     async function loadDashboard() {
-      const summary = await LeadService.getStatsSummary();
-      const leadsData = await LeadService.listLeads({ pageSize: 5 });
-      setStats(summary);
-      setRecentLeads(leadsData.leads);
+      try {
+        const summary = await LeadService.getStatsSummary();
+        const leadsData = await LeadService.listLeads({ pageSize: 5 });
+        let allLeads = [...leadsData.leads];
+
+        if (typeof window !== "undefined") {
+          const stored = localStorage.getItem("guruji_admin_leads");
+          if (stored) {
+            try {
+              const parsed = JSON.parse(stored);
+              if (Array.isArray(parsed)) {
+                const ids = new Set(allLeads.map((l) => l.id));
+                parsed.forEach((item) => {
+                  if (!ids.has(item.id)) {
+                    allLeads.unshift(item);
+                    ids.add(item.id);
+                  }
+                });
+              }
+            } catch {
+              // Ignore
+            }
+          }
+
+          const storedRes = localStorage.getItem("guruji_admin_results");
+          if (storedRes) {
+            try {
+              const p = JSON.parse(storedRes);
+              if (Array.isArray(p)) setResultsCount(p.length);
+            } catch {}
+          }
+
+          const storedBlogs = localStorage.getItem("guruji_admin_blogs");
+          if (storedBlogs) {
+            try {
+              const b = JSON.parse(storedBlogs);
+              if (Array.isArray(b)) setBlogsCount(b.length);
+            } catch {}
+          }
+        }
+
+        const newCount = allLeads.filter((l) => l.status === "NEW").length;
+        const inCounsellingCount = allLeads.filter((l) => l.status === "COUNSELLING").length;
+        const appCount = allLeads.filter((l) => l.status === "APPLICATION").length;
+        const processingCount = allLeads.filter((l) => l.status === "VISA_PROCESSING").length;
+        const approvedCount = allLeads.filter((l) => l.status === "APPROVED").length;
+        const closedCount = allLeads.filter((l) => l.status === "CLOSED").length;
+        const total = allLeads.length;
+        const conversion = total > 0 ? Math.round((approvedCount / total) * 100) : 0;
+
+        setStats({
+          totalLeads: total,
+          newLeads: newCount,
+          inCounselling: inCounsellingCount,
+          applicationsSubmitted: appCount,
+          visasInProcessing: processingCount,
+          visasApproved: approvedCount,
+          closedLeads: closedCount,
+          conversionRate: conversion,
+        });
+        setRecentLeads(allLeads.slice(0, 5));
+      } catch {
+        // Fallback
+      }
     }
     loadDashboard();
   }, []);
@@ -108,7 +171,7 @@ export default function AdminDashboardPage() {
             </div>
           </div>
           <div className="text-2xl sm:text-3xl font-extrabold text-navy-950">
-            {DEFAULT_STUDENT_RESULTS.length}
+            {resultsCount}
           </div>
           <span className="text-[11px] text-emerald-600 font-semibold mt-1 block">
             Live on website marquee
@@ -125,7 +188,7 @@ export default function AdminDashboardPage() {
             </div>
           </div>
           <div className="text-2xl sm:text-3xl font-extrabold text-navy-950">
-            {DEFAULT_BLOG_POSTS.length}
+            {blogsCount}
           </div>
           <span className="text-[11px] text-slate-500 font-medium mt-1 block">
             SEO study abroad articles

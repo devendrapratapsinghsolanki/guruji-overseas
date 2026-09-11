@@ -54,8 +54,35 @@ export default function AdminLeadsPage() {
   const [statusMessage, setStatusMessage] = useState("");
 
   const loadLeads = async () => {
-    const data = await LeadService.listLeads();
-    setLeads(data.leads);
+    try {
+      const data = await LeadService.listLeads();
+      let combined = [...data.leads];
+      
+      if (typeof window !== "undefined") {
+        const stored = localStorage.getItem("guruji_admin_leads");
+        if (stored) {
+          try {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed)) {
+              // Merge unique by ID
+              const existingIds = new Set(combined.map((l) => l.id));
+              parsed.forEach((item) => {
+                if (!existingIds.has(item.id)) {
+                  combined.unshift(item);
+                  existingIds.add(item.id);
+                }
+              });
+            }
+          } catch {
+            // Ignore parse error
+          }
+        }
+      }
+      
+      setLeads(combined);
+    } catch {
+      // Fallback
+    }
   };
 
   useEffect(() => {
