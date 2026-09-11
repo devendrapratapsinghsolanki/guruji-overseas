@@ -91,9 +91,9 @@ export default function AdminLoginPage() {
               autoFocus
               required
             />
-            <span className="text-[11px] text-slate-400 block mt-1">
+            {/* <span className="text-[11px] text-slate-400 block mt-1">
               Default passcode: <strong className="text-navy-950">guruji@2026</strong> or configured in <code className="bg-slate-100 px-1 py-0.5 rounded text-[10px]">ADMIN_PASSWORD</code>
-            </span>
+            </span> */}
           </div>
 
           <button

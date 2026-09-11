@@ -25,8 +25,8 @@ const POPULAR_INQUIRY_SERVICES = [
   "IELTS / PTE Coaching",
   "Study Abroad Counselling",
   "University & Course Selection",
-  "Visitor / Tourist Visa",
-  "Dependent / Spouse Visa",
+  // "Visitor / Tourist Visa",
+  // "Dependent / Spouse Visa",
 ];
 
 export function InquiryForm({
@@ -223,11 +223,10 @@ export function InquiryForm({
             setFormData({ ...formData, name: e.target.value });
             if (errors.name) setErrors({ ...errors, name: "" });
           }}
-          className={`w-full px-4 py-2.5 rounded-xl border text-xs sm:text-sm bg-surface-gray/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-            errors.name
+          className={`w-full px-4 py-2.5 rounded-xl border text-xs sm:text-sm bg-surface-gray/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${errors.name
               ? "border-rose-400 focus:ring-rose-400"
               : "border-slate-300 focus:ring-royal-500"
-          }`}
+            }`}
         />
         {errors.name && (
           <p className="text-[11px] text-rose-600 font-medium">{errors.name}</p>
@@ -254,11 +253,10 @@ export function InquiryForm({
               setFormData({ ...formData, email: e.target.value });
               if (errors.email) setErrors({ ...errors, email: "" });
             }}
-            className={`w-full px-4 py-2.5 rounded-xl border text-xs sm:text-sm bg-surface-gray/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-              errors.email
+            className={`w-full px-4 py-2.5 rounded-xl border text-xs sm:text-sm bg-surface-gray/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${errors.email
                 ? "border-rose-400 focus:ring-rose-400"
                 : "border-slate-300 focus:ring-royal-500"
-            }`}
+              }`}
           />
           {errors.email && (
             <p className="text-[11px] text-rose-600 font-medium">{errors.email}</p>
@@ -283,11 +281,10 @@ export function InquiryForm({
               setFormData({ ...formData, phone: e.target.value });
               if (errors.phone) setErrors({ ...errors, phone: "" });
             }}
-            className={`w-full px-4 py-2.5 rounded-xl border text-xs sm:text-sm bg-surface-gray/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-              errors.phone
+            className={`w-full px-4 py-2.5 rounded-xl border text-xs sm:text-sm bg-surface-gray/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${errors.phone
                 ? "border-rose-400 focus:ring-rose-400"
                 : "border-slate-300 focus:ring-royal-500"
-            }`}
+              }`}
           />
           {errors.phone && (
             <p className="text-[11px] text-rose-600 font-medium">{errors.phone}</p>
@@ -311,11 +308,10 @@ export function InquiryForm({
             return (
               <label
                 key={serviceName}
-                className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-medium cursor-pointer select-none transition-all ${
-                  isChecked
+                className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-medium cursor-pointer select-none transition-all ${isChecked
                     ? "bg-royal-50 border-royal-400 text-royal-950 font-bold shadow-xs"
                     : "bg-white border-slate-200 text-charcoal-700 hover:border-slate-300"
-                }`}
+                  }`}
               >
                 <input
                   type="checkbox"
@@ -356,11 +352,10 @@ export function InquiryForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider text-white shadow-md flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
-          isSubmitting
+        className={`w-full py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider text-white shadow-md flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${isSubmitting
             ? "bg-slate-400 cursor-not-allowed opacity-80"
             : "bg-navy-950 hover:bg-royal-700 hover:shadow-lg active:scale-[0.99]"
-        }`}
+          }`}
       >
         {isSubmitting ? (
           <>
