@@ -6,6 +6,8 @@ import {
   sendVisitorAcknowledgement,
 } from "@/lib/email/inquiryEmail";
 
+export const dynamic = "force-dynamic";
+
 // Simple in-memory sliding rate limiter per IP: max 5 requests per 60 seconds
 const ipRequestHistory = new Map<string, number[]>();
 

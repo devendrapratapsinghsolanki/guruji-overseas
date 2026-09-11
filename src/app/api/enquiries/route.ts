@@ -3,6 +3,8 @@ import { EnquiryFormData, EnquirySubmissionResponse } from "@/types/enquiry";
 import { validateEnquiryForm } from "@/lib/validation/enquiry";
 import { COMPANY_INFO } from "@/data/company";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   try {
     const body: EnquiryFormData = await request.json();

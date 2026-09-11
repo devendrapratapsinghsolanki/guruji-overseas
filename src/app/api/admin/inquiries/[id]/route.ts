@@ -3,6 +3,8 @@ import { getAdminSessionFromRequest } from "@/lib/auth";
 import { InquiryService } from "@/lib/services/inquiryService";
 import { InquiryStatus } from "@/types/inquiry";
 
+export const dynamic = "force-dynamic";
+
 interface RouteParams {
   params: Promise<{ id: string }>;
 }

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminSessionFromRequest } from "@/lib/auth";
 import { InquiryService } from "@/lib/services/inquiryService";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   try {
     const session = await getAdminSessionFromRequest(request);
