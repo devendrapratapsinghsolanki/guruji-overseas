@@ -6,13 +6,9 @@ import { DestinationsSection } from "@/components/destinations/DestinationsSecti
 import { AboutSection } from "@/components/about/AboutSection";
 import { WhyUsSection } from "@/components/why-us/WhyUsSection";
 import { TestPrepSection } from "@/components/test-preparation/TestPrepSection";
-import { JourneySection } from "@/components/journey/JourneySection";
 import { UniversitiesSection } from "@/components/universities/UniversitiesSection";
-import { VisaServicesSection } from "@/components/visa/VisaServicesSection";
 import { ProfileAssessmentSection } from "@/components/forms/ProfileAssessmentSection";
 import { ReviewsAndVisaMarqueeSection } from "@/components/testimonials";
-import { BlogSection } from "@/components/blog/BlogSection";
-import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 import { ContactSection } from "@/components/contact/ContactSection";
 import { Footer } from "@/components/footer/Footer";
 
@@ -32,46 +28,34 @@ export default function Home() {
       {/* Sticky Responsive Navbar with Mobile Drawer */}
       <Navbar />
 
-      {/* Section 1: Hero */}
+      {/* Section 1: Hero with Direct Highlights */}
       <Hero />
 
       {/* Section 2: Quick Services & Trust Strip */}
       <QuickTrustStrip />
 
-      {/* Section 3: Study Destinations */}
+      {/* Section 3: Study Abroad Destinations (Canada, UK, Aus, NZ, USA, Germany, Europe) */}
       <DestinationsSection />
 
-      {/* Section 4: About Guruji Overseas */}
+      {/* Section 4: About Guruji Overseas & Rohtak Office */}
       <AboutSection />
 
-      {/* Section 5: Why Guruji Overseas */}
+      {/* Section 5: Why Choose Guruji Overseas */}
       <WhyUsSection />
 
-      {/* Section 6: IELTS & PTE Preparation */}
+      {/* Section 6: IELTS & PTE Test Preparation */}
       <TestPrepSection />
 
-      {/* Section 7: Study Abroad Journey */}
-      <JourneySection />
-
-      {/* Section 8: Institution Discovery & Search */}
+      {/* Section 7: Partner Universities & Discovery */}
       <UniversitiesSection />
 
-      {/* Section 9: Visa Services */}
-      <VisaServicesSection />
-
-      {/* Section 10: Profile Assessment Form */}
-      <ProfileAssessmentSection />
-
-      {/* Section 11: Real Student Reviews (L-to-R) & Placed Visa Students (R-to-L) Marquee */}
+      {/* Section 8: Verified Student Reviews & Visa Approval Marquee */}
       <ReviewsAndVisaMarqueeSection />
 
-      {/* Section 12: Editorial Blog & Guides */}
-      <BlogSection />
+      {/* Section 9: Streamlined Free Counselling & Inquiry Form */}
+      <ProfileAssessmentSection />
 
-      {/* Section 13: Final Call to Action */}
-      <FinalCtaSection />
-
-      {/* Section 14: Contact & Office Location */}
+      {/* Section 10: Office Location, Map & Direct Contact */}
       <ContactSection />
 
       {/* Institutional Footer */}

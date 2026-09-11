@@ -9,12 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/client": "6.4.1",
     "clsx": "^2.1.1",
+    "jose": "^6.2.12",
     "lucide-react": "^1.43.0",
     "next": "16.3.4",
+    "prisma": "6.4.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "tailwind-merge": "^3.6.0"
+    "resend": "^6.27.0",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.6.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

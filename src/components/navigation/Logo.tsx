@@ -30,13 +30,13 @@ export function Logo({
       aria-label="Guruji Overseas Home"
     >
       {variant === "footer" ? (
-        <div className="relative w-[190px] sm:w-[220px] flex items-center justify-start cursor-pointer">
+        <div className="relative w-[175px] sm:w-[205px] md:w-[220px] flex items-center justify-start cursor-pointer">
           <Image
             src="/guruji-overseas-logo-transparent.png"
             alt="Guruji Overseas"
             width={250}
             height={100}
-            className="w-full h-auto max-h-[58px] object-contain object-left cursor-pointer [filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.65))]"
+            className="w-full h-auto max-h-[44px] sm:max-h-[48px] object-contain object-left cursor-pointer brightness-0 invert"
             priority
           />
         </div>

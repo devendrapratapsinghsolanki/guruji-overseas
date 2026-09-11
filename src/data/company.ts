@@ -5,11 +5,11 @@ export const COMPANY_INFO = {
   establishedYear: 2022,
 
   contact: {
-    primaryPhone: "+91 79884 29392",
-    secondaryPhone: "+91 7056 544 009",
-    displayPhone: "+91 79884 29392 / +91 7056 544 009",
-    whatsappNumber: "917988429392",
-    secondaryWhatsappNumber: "917056544009",
+    primaryPhone: "+91 7056 544 009",
+    secondaryPhone: "+91 79884 29392",
+    displayPhone: "+91 7056 544 009 / +91 79884 29392",
+    whatsappNumber: "917056544009",
+    secondaryWhatsappNumber: "917988429392",
     email: "gurujioverseasrtk@gmail.com",
     officeHours: "Monday - Saturday: 9:30 AM - 6:30 PM",
   },
@@ -134,6 +134,13 @@ export const COMPANY_INFO = {
       flag: "🇩🇪",
       highlight: "High-ranking engineering and technical education with low or nominal tuition fees.",
       popularIntakes: ["Winter (September/October)", "Summer (March/April)"],
+    },
+    {
+      id: "europe",
+      name: "Europe",
+      flag: "🇪🇺",
+      highlight: "Affordable higher education across Schengen countries, Ireland, and Italy with stay-back options.",
+      popularIntakes: ["Fall (September/October)", "Spring (February/March)"],
     },
   ],
 } as const;

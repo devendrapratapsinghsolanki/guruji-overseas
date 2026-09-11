@@ -88,6 +88,11 @@ export function Footer() {
                   Study in Germany
                 </Link>
               </li>
+              <li>
+                <Link href="/study-abroad" className="hover:text-amber-400 transition-colors">
+                  Study in Europe
+                </Link>
+              </li>
               <li className="pt-1">
                 <Link href="/study-abroad" className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1">
                   <span>View All Destinations</span>

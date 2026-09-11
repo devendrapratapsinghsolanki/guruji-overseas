@@ -28,10 +28,33 @@ export async function POST(request: NextRequest) {
 
     // Record into CRM Data Architecture (Decoupled Service)
     const { LeadService } = await import("@/lib/services/leadService");
+    const { InquiryService } = await import("@/lib/services/inquiryService");
+    const { sendAdminInquiryNotification, sendVisitorAcknowledgement } = await import("@/lib/email/inquiryEmail");
+
     await LeadService.createLeadFromWebsiteEnquiry(body, {
       trackingId: enquiryId,
       sourceContext: body.formType,
     });
+
+    const inquiryRecord = await InquiryService.createInquiry({
+      name: body.fullName,
+      email: body.email || `${body.phone}@student.inquiry`,
+      phone: body.phone,
+      services: [
+        `Study in ${body.preferredCountry.toUpperCase()}`,
+        body.interestedCourse,
+        body.testStatus !== "exempted" ? `Test: ${body.testStatus}` : "Test Exempted",
+      ],
+      message: body.message || `Qualification: ${body.highestQualification} (${body.academicScore}). Intake: ${body.preferredIntake}`,
+      consent: true,
+      source: body.formType || "Profile Assessment",
+    });
+
+    // Send emails non-blocking
+    if (body.email && body.email.includes("@")) {
+      sendVisitorAcknowledgement(inquiryRecord).catch(() => {});
+    }
+    sendAdminInquiryNotification(inquiryRecord).catch(() => {});
 
     // Notification summary for Email (gurujioverseasrtk@gmail.com) and Phone (7988429392)
     const notificationPayload = {

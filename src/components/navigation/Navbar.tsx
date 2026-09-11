@@ -74,6 +74,12 @@ const studyAbroadDestinations: DropdownItem[] = [
     href: "/study-abroad/germany",
     flag: "🇩🇪",
   },
+  {
+    title: "Study in Europe",
+    description: "Affordable higher education in Schengen & Ireland",
+    href: "/study-abroad",
+    flag: "🇪🇺",
+  },
 ];
 
 const testPrepItems: DropdownItem[] = [
@@ -614,14 +620,14 @@ export function Navbar() {
                   className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-navy-950 text-white text-xs font-bold hover:bg-navy-900 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Call 7988429392</span>
+                  <span>Call 7056544009</span>
                 </a>
                 <a
                   href={`tel:${COMPANY_INFO.contact.secondaryPhone.replace(/\s+/g, "")}`}
                   className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-royal-700 text-white text-xs font-bold hover:bg-royal-800 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Call 7056544009</span>
+                  <span>Call 7988429392</span>
                 </a>
               </div>
 

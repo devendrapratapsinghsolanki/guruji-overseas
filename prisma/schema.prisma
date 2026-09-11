@@ -10,6 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  COUNSELLING
+  DOCUMENTS
+  APPLICATION
+  VISA_PROCESSING
+  APPROVED
+  CLOSED
+}
+
 enum LeadStatus {
   NEW
   CONTACTED
@@ -167,3 +178,26 @@ model University {
   @@index([featured])
   @@map("universities")
 }
+
+model Inquiry {
+  id         String        @id @default(cuid())
+  name       String
+  email      String
+  phone      String
+  services   String[]
+  message    String?       @db.Text
+  consent    Boolean       @default(true)
+  status     InquiryStatus @default(NEW)
+  source     String?       @default("Website Inquiry")
+  notes      String?       @db.Text
+  assignedTo String?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+  @@index([phone])
+  @@map("inquiries")
+}
+
