@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Phone, MapPin, Clock } from "lucide-react";
 import { Container } from "@/components/ui";
-import { Logo } from "@/components/navigation/Logo";
 import { COMPANY_INFO } from "@/data/company";
 
 export function Footer() {
@@ -12,7 +11,20 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           {/* Column 1: Brand & Office Information */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo variant="footer" theme="dark" />
+            <Link href="/" className="inline-block group select-none">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest">
+                  Study Abroad &amp; Admissions
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                GURUJI <span className="text-amber-400">OVERSEAS</span>
+              </h3>
+              <p className="text-[11px] font-semibold text-slate-400 tracking-wider uppercase mt-0.5">
+                Immigration Private Limited
+              </p>
+            </Link>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm mt-3">
               {COMPANY_INFO.legalName} is an overseas education and immigration
               consultancy established in {COMPANY_INFO.establishedYear} in Rohtak,
